@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development - Day 2</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        color: #333;
+      }
+
+      .slide {
+        border: 1px solid #ddd;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+
+      h2 {
+        color: #3498db;
+        margin-top: 20px;
+      }
+
+      .code-example {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        margin: 10px 0;
+      }
+
+      .best-practice {
+        background-color: #d4edda;
+        border-left: 4px solid #28a745;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      .warning {
+        background-color: #f8d7da;
+        border-left: 4px solid #dc3545;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .git-command {
+        background-color: #282c34;
+        color: #abb2bf;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Web Development - Day 2<br />HTML Elements, Attributes & Git Commits
+    </h1>
+    <div class="slide">
+      <h2>Today's Agenda</h2>
+      <ul>
+        <li>Deep dive into HTML elements and their purpose</li>
+        <li>Understanding HTML attributes</li>
+        <li>Semantic HTML</li>
+        <li>Git commit best practices</li>
+        <li>Hands-on practice</li>
+        <li>Assignment: Recipe page creation</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h2>HTML Elements Deep Dive</h2>
+      <h3>Structural Elements</h3>
+      <table>
+        <tr>
+          <th>Element</th>
+          <th>Purpose</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>&lt;header&gt;</td>
+          <td>Introductory content, navigation</td>
+          <td class="code-example">
+            &lt;header&gt;&lt;h1&gt;My Website&lt;/h1&gt;&lt;/header&gt;
+          </td>
+        </tr>
+        <tr>
+          <td>&lt;main&gt;</td>
+          <td>Main content of the page</td>
+          <td class="code-example">
+            &lt;main&gt;&lt;article&gt;Content&lt;/article&gt;&lt;/main&gt;
+          </td>
+        </tr>
+        <tr>
+          <td>&lt;footer&gt;</td>
+          <td>Footer information</td>
+          <td class="code-example">&lt;footer&gt;&copy; 2024&lt;/footer&gt;</td>
+        </tr>
+      </table>
+
+      <h3>Text Elements</h3>
+      <div class="code-example">
+        &lt;p&gt;Paragraph text&lt;/p&gt;<br />
+        &lt;strong&gt;Important text&lt;/strong&gt;<br />
+        &lt;em&gt;Emphasized text&lt;/em&gt;<br />
+        &lt;blockquote&gt;Quoted text&lt;/blockquote&gt;
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>HTML Attributes</h2>
+      <p>
+        Attributes provide additional information and functionality to HTML
+        elements.
+      </p>
+
+      <table>
+        <tr>
+          <th>Attribute</th>
+          <th>Purpose</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>class</td>
+          <td>Specifies CSS class</td>
+          <td>&lt;div class="container"&gt;</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>Unique identifier</td>
+          <td>&lt;div id="header"&gt;</td>
+        </tr>
+        <tr>
+          <td>src</td>
+          <td>Source file reference</td>
+          <td>&lt;img src="image.jpg"&gt;</td>
+        </tr>
+        <tr>
+          <td>alt</td>
+          <td>Alternative text</td>
+          <td>&lt;img alt="Description"&gt;</td>
+        </tr>
+      </table>
+
+      <div class="best-practice">
+        <strong>Best Practice:</strong> Always include alt attributes for images
+        and meaningful class/id names.
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Semantic HTML</h2>
+      <p>
+        Semantic HTML elements clearly describe their meaning to both the
+        browser and the developer.
+      </p>
+
+      <h3>Benefits:</h3>
+      <ul>
+        <li>Better SEO (Search Engine Optimization)</li>
+        <li>Improved accessibility</li>
+        <li>Easier code maintenance</li>
+        <li>Clearer code structure</li>
+      </ul>
+
+      <div class="code-example">
+        &lt;article&gt;<br />
+        &nbsp;&nbsp;&lt;header&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Article Title&lt;/h1&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;time datetime="2024-01-01"&gt;January 1,
+        2024&lt;/time&gt;<br />
+        &nbsp;&nbsp;&lt;/header&gt;<br />
+        &nbsp;&nbsp;&lt;section&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Article content...&lt;/p&gt;<br />
+        &nbsp;&nbsp;&lt;/section&gt;<br />
+        &lt;/article&gt;
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Git Commits</h2>
+      <h3>Writing Good Commit Messages</h3>
+
+      <div class="best-practice">
+        <strong>Commit Message Structure:</strong>
+        <pre>
+[type]: Short description (50 chars)
+
+Longer description with more details...
+- What was changed
+- Why it was changed
+- Any notable side effects
+            </pre
+        >
+      </div>
+
+      <h3>Common Types:</h3>
+      <ul>
+        <li>feat: New feature</li>
+        <li>fix: Bug fix</li>
+        <li>docs: Documentation changes</li>
+        <li>style: Formatting changes</li>
+        <li>refactor: Code restructuring</li>
+      </ul>
+
+      <div class="git-command">
+        # Good commit messages<br />
+        git commit -m "feat: Add navigation menu to header"<br />
+        git commit -m "fix: Correct image alignment in recipe cards"<br />
+        git commit -m "docs: Update README with setup instructions"
+      </div>
+
+      <div class="warning">
+        <strong>Avoid:</strong>
+        <ul>
+          <li>"Fixed stuff"</li>
+          <li>"Update"</li>
+          <li>"Changes"</li>
+          <li>Very long messages in the subject line</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Practice Exercise</h2>
+      <h3>Building a Simple Webpage</h3>
+
+      <ol>
+        <li>Create a new file: about.html</li>
+        <li>
+          Include:
+          <ul>
+            <li>Header with navigation</li>
+            <li>Main content section</li>
+            <li>Image gallery</li>
+            <li>Contact form</li>
+            <li>Footer</li>
+          </ul>
+        </li>
+        <li>Make commits for each major section</li>
+      </ol>
+
+      <div class="code-example">
+        &lt;!DOCTYPE html&gt;<br />
+        &lt;html lang="en"&gt;<br />
+        &lt;head&gt;<br />
+        &nbsp;&nbsp;&lt;title&gt;About Us&lt;/title&gt;<br />
+        &lt;/head&gt;<br />
+        &lt;body&gt;<br />
+        &nbsp;&nbsp;&lt;header&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;Menu items...&lt;/nav&gt;<br />
+        &nbsp;&nbsp;&lt;/header&gt;<br />
+        &nbsp;&nbsp;&lt;main&gt;Content...&lt;/main&gt;<br />
+        &nbsp;&nbsp;&lt;footer&gt;Footer content...&lt;/footer&gt;<br />
+        &lt;/body&gt;<br />
+        &lt;/html&gt;
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Assignment: Recipe Page</h2>
+      <h3>Requirements:</h3>
+      <ul>
+        <li>Create a new repository: "recipe-collection"</li>
+        <li>
+          Include:
+          <ul>
+            <li>Recipe title and description</li>
+            <li>Ingredients list (unordered list)</li>
+            <li>Step-by-step instructions (ordered list)</li>
+            <li>At least 2 images with alt text</li>
+            <li>Preparation time and serving size</li>
+            <li>Author credits</li>
+          </ul>
+        </li>
+        <li>Make at least 5 meaningful commits</li>
+        <li>Include a README.md file</li>
+      </ul>
+
+      <div class="best-practice">
+        <strong>Commit Structure:</strong>
+        <ol>
+          <li>Initial setup and basic HTML structure</li>
+          <li>Add recipe content and ingredients</li>
+          <li>Add instructions and steps</li>
+          <li>Include images and styling</li>
+          <li>Final touches and README updates</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Additional Resources</h2>
+      <ul>
+        <li>MDN HTML Elements Reference</li>
+        <li>Git Commit Message Guide</li>
+        <li>HTML5 Semantic Elements Guide</li>
+        <li>Web Accessibility Initiative (WAI)</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h2>Next Class Preview</h2>
+      <ul>
+        <li>Introduction to CSS</li>
+        <li>Styling your recipe page</li>
+        <li>CSS selectors and properties</li>
+        <li>Git branches and merging</li>
+      </ul>
+    </div>
+  </body>
+</html>

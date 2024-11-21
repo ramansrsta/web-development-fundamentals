@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: HTML5 Semantic Elements and Pull Requests</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --code-bg: #f1f5f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        code {
+            background-color: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+        }
+        
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+        
+        .example {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .note {
+            background-color: #fef3c7;
+            border-left: 4px solid #d97706;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        .practice {
+            background-color: #e0f2fe;
+            border: 1px solid #0ea5e9;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .assignment {
+            background-color: #f0fdf4;
+            border: 1px solid #22c55e;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Day 4: HTML5 Semantic Elements and Pull Requests</h1>
+        <p>Learn about semantic HTML elements and how to contribute to projects using pull requests</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Part 1: HTML5 Semantic Elements</h2>
+            
+            <h3>What are Semantic Elements?</h3>
+            <p>Semantic elements are HTML elements that carry meaning about their content, making the document structure clearer for both developers and machines.</p>
+            
+            <h3>Key Semantic Elements</h3>
+            <ul>
+                <li><code>&lt;header&gt;</code> - Container for introductory content or navigation links</li>
+                <li><code>&lt;nav&gt;</code> - Section for navigation links</li>
+                <li><code>&lt;main&gt;</code> - Main content of the document</li>
+                <li><code>&lt;article&gt;</code> - Self-contained content that can be distributed independently</li>
+                <li><code>&lt;section&gt;</code> - Thematic grouping of content</li>
+                <li><code>&lt;aside&gt;</code> - Content indirectly related to the main content</li>
+                <li><code>&lt;footer&gt;</code> - Footer for a document or section</li>
+                <li><code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> - Self-contained content with caption</li>
+            </ul>
+
+            <div class="example">
+                <h3>Example Structure</h3>
+                <pre><code>&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;!-- Navigation links --&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;header&gt;
+                &lt;h1&gt;Article Title&lt;/h1&gt;
+            &lt;/header&gt;
+            &lt;section&gt;
+                &lt;h2&gt;Section Heading&lt;/h2&gt;
+                &lt;p&gt;Content...&lt;/p&gt;
+            &lt;/section&gt;
+        &lt;/article&gt;
+        
+        &lt;aside&gt;
+            &lt;!-- Related content --&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;!-- Footer content --&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+
+            <h3>Benefits of Semantic HTML</h3>
+            <ul>
+                <li>Better accessibility for screen readers</li>
+                <li>Easier to read and maintain code</li>
+                <li>Better SEO optimization</li>
+                <li>Clearer document structure</li>
+                <li>More consistent codebase</li>
+            </ul>
+
+            <div class="note">
+                <strong>Note:</strong> Always choose the most appropriate semantic element for your content. Don't use semantic elements just for styling purposes.
+            </div>
+        </section>
+
+        <section>
+            <h2>Part 2: Pull Requests in GitHub</h2>
+
+            <h3>What is a Pull Request?</h3>
+            <p>A pull request (PR) is a method of submitting contributions to a project. It lets you tell others about changes you've pushed to a branch in a repository on GitHub.</p>
+
+            <h3>Pull Request Workflow</h3>
+            <ol>
+                <li>Fork the repository</li>
+                <li>Clone your fork locally</li>
+                <li>Create a new branch</li>
+                <li>Make your changes</li>
+                <li>Commit and push changes</li>
+                <li>Create pull request</li>
+                <li>Respond to review comments</li>
+                <li>Merge pull request</li>
+            </ol>
+
+            <div class="example">
+                <h3>Common Git Commands for PRs</h3>
+                <pre><code># Clone repository
+git clone https://github.com/username/repo.git
+
+# Create and switch to new branch
+git checkout -b feature-branch
+
+# Add and commit changes
+git add .
+git commit -m "Add semantic elements to homepage"
+
+# Push changes
+git push origin feature-branch</code></pre>
+            </div>
+
+            <h3>Pull Request Best Practices</h3>
+            <ul>
+                <li>Keep PRs focused and small</li>
+                <li>Write clear PR descriptions</li>
+                <li>Include screenshots if UI changes</li>
+                <li>Reference related issues</li>
+                <li>Respond promptly to reviews</li>
+                <li>Keep commit history clean</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Practice Exercises</h2>
+            
+            <div class="practice">
+                <h3>Exercise 1: Semantic Refactoring</h3>
+                <p>Refactor this non-semantic HTML to use appropriate semantic elements:</p>
+                <pre><code>&lt;div class="header"&gt;
+    &lt;div class="nav"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="main"&gt;
+    &lt;div class="content"&gt;
+        &lt;div class="post"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="sidebar"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="footer"&gt;&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="practice">
+                <h3>Exercise 2: Create a Pull Request</h3>
+                <ol>
+                    <li>Fork the class repository</li>
+                    <li>Create a branch named "semantic-refactor"</li>
+                    <li>Implement your refactored code</li>
+                    <li>Create a pull request with your changes</li>
+                </ol>
+            </div>
+        </section>
+
+        <section>
+            <h2>Assignment</h2>
+            
+            <div class="assignment">
+                <h3>Blog Post Layout</h3>
+                <p>Create a blog post layout using semantic HTML elements. Your layout should include:</p>
+                <ul>
+                    <li>Header with navigation</li>
+                    <li>Main content area with article</li>
+                    <li>Article header with metadata</li>
+                    <li>Multiple content sections</li>
+                    <li>Aside with related content</li>
+                    <li>Footer with author info</li>
+                </ul>
+                <p><strong>Submission:</strong> Create a pull request to the class repository with your solution.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Additional Resources</h2>
+            <ul>
+                <li>MDN Web Docs: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML Elements Reference</a></li>
+                <li>GitHub Docs: <a href="https://docs.github.com/en/pull-requests">Working with Pull Requests</a></li>
+                <li>HTML5 Doctor: <a href="http://html5doctor.com/">Semantic HTML Guide</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created for Web Development Course - Day 4</p>
+    </footer>
+</body>
+</html>

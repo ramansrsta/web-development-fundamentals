@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Multimedia Elements - Lecture Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { color: #333; }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .note {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Multimedia Elements: Comprehensive Guide</h1>
+    
+    <h2>1. Introduction to Multimedia in HTML</h2>
+    <p>HTML provides powerful elements for embedding audio, video, and other media types directly into web pages, enhancing user experience and interactivity.</p>
+    
+    <h2>2. Video Element</h2>
+    <h3>Basic Video Embedding</h3>
+    <pre><code>&lt;video width="640" height="360" controls&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    &lt;source src="movie.webm" type="video/webm"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+
+    <div class="note">
+        <strong>Best Practices for Video:</strong>
+        <ul>
+            <li>Provide multiple source formats for cross-browser compatibility</li>
+            <li>Use the <code>controls</code> attribute to give users playback control</li>
+            <li>Include a fallback text for browsers that don't support video</li>
+        </ul>
+    </div>
+
+    <h3>Advanced Video Attributes</h3>
+    <pre><code>&lt;video 
+    src="tutorial.mp4" 
+    width="640" 
+    height="360" 
+    controls 
+    poster="preview-image.jpg"
+    preload="metadata"
+    loop
+    muted&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+
+    <h2>3. Audio Element</h2>
+    <h3>Basic Audio Embedding</h3>
+    <pre><code>&lt;audio controls&gt;
+    &lt;source src="music.mp3" type="audio/mpeg"&gt;
+    &lt;source src="music.ogg" type="audio/ogg"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+
+    <div class="note">
+        <strong>Best Practices for Audio:</strong>
+        <ul>
+            <li>Provide multiple audio formats</li>
+            <li>Use <code>controls</code> for user interaction</li>
+            <li>Consider file size and streaming options</li>
+        </ul>
+    </div>
+
+    <h3>Advanced Audio Attributes</h3>
+    <pre><code>&lt;audio 
+    src="podcast.mp3" 
+    controls 
+    autoplay 
+    loop 
+    preload="none"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+
+    <h2>4. Accessibility Considerations</h2>
+    <pre><code>&lt;video controls&gt;
+    &lt;source src="lecture.mp4" type="video/mp4"&gt;
+    &lt;track kind="captions" 
+            src="captions.vtt" 
+            srclang="en" 
+            label="English"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+
+    <div class="note">
+        <strong>Accessibility Tips:</strong>
+        <ul>
+            <li>Always provide captions for video content</li>
+            <li>Use the <code>&lt;track&gt;</code> element for subtitles and captions</li>
+            <li>Ensure keyboard navigability for media controls</li>
+        </ul>
+    </div>
+
+    <h2>5. Responsive Multimedia</h2>
+    <pre><code>&lt;style&gt;
+    video, audio {
+        max-width: 100%;
+        height: auto;
+    }
+&lt;/style&gt;</code></pre>
+
+    <h2>6. Performance Optimization</h2>
+    <div class="note">
+        <strong>Media Performance Tips:</strong>
+        <ul>
+            <li>Compress media files to reduce file size</li>
+            <li>Use appropriate video/audio codecs</li>
+            <li>Consider lazy loading for media</li>
+            <li>Leverage browser caching</li>
+        </ul>
+    </div>
+
+    <h2>7. Sample Multimedia Page</h2>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Multimedia Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Multimedia Learning Resources&lt;/h1&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Educational Video&lt;/h2&gt;
+        &lt;video width="640" height="360" controls&gt;
+            &lt;source src="lesson.mp4" type="video/mp4"&gt;
+            Your browser does not support videos.
+        &lt;/video&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Podcast Lecture&lt;/h2&gt;
+        &lt;audio controls&gt;
+            &lt;source src="lecture.mp3" type="audio/mpeg"&gt;
+            Your browser does not support audio.
+        &lt;/audio&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <h2>Conclusion</h2>
+    <p>Multimedia elements in HTML5 provide powerful ways to integrate rich media content into web pages. By following best practices and considering accessibility, you can create engaging and inclusive multimedia experiences.</p>
+</body>
+</html>

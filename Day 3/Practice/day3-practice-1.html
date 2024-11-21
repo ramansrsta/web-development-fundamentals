@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Day 3 Tables and Forms Practice</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/styles.css" />
+  </head>
+
+  <body>
+    <legend>Survey Form</legend>
+    <!-- <form method="post" action="/home.php" style="display: flex; flex-direction: column">
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Please Enter UserName"
+        required
+      />
+      <hr />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <hr />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <hr />
+
+      <label for="checkbox">checkbox:</label>
+      <input type="checkbox" id="checkbox" name="checkbox" />
+      <hr />
+
+      <label for="file">Upload File:</labbel>
+      <input type="file" id="file" name="file" required />
+      <hr />
+
+      <button type="submit">Submit</button>
+
+    </form> -->
+
+    <legend>User Table</legend>
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Checkbox</th>
+          <th>File</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>joh@gmail.com</td>
+          <td>password</td>
+          <td>
+            <input type="checkbox" id="checkbox" name="checkbox" checked />
+          </td>
+          <td>file</td>
+        </tr>
+        <tr>
+          <td>John Doe</td>
+          <td>joh@gmail.com</td>
+          <td>password</td>
+          <td>
+            <input type="radio" id="checkbox" name="checkbox" checked />
+          </td>
+          <td>
+            <select name="file" id="file">
+              <option value="file1">File 1</option>
+              <option value="file2">File 2</option>
+              <option value="file3">File 3</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

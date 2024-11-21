@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML Forms, Tables, and Validation</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <!-- Slide 1: Title Slide -->
+    <div class="slide" id="slide1">
+      <h1>HTML Forms, Tables, and Validation</h1>
+      <h2>A Comprehensive Guide to Web Interaction</h2>
+      <p>By Your Web Development Expert</p>
+    </div>
+
+    <!-- Slide 2: What are HTML Forms? -->
+    <div class="slide" id="slide2">
+      <h1>What are HTML Forms?</h1>
+      <p>HTML forms collect user input and interact with servers</p>
+      <div class="code-example">
+        <pre>
+&lt;form action="/submit" method="post"&gt;
+    &lt;label for="username"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre
+        >
+      </div>
+      <div class="best-practice">
+        Best Practice: Always use labels for accessibility
+      </div>
+    </div>
+
+    <!-- Slide 3: Input Types -->
+    <div class="slide" id="slide3">
+      <h1>HTML Input Types</h1>
+      <div class="code-example">
+        <pre>
+&lt;!-- Text Inputs --&gt;
+&lt;input type="text"&gt;      &lt;!-- Single-line text --&gt;
+&lt;input type="password"&gt;  &lt;!-- Masked input --&gt;
+&lt;input type="email"&gt;     &lt;!-- Email validation --&gt;
+&lt;input type="number"&gt;    &lt;!-- Numeric input --&gt;
+
+&lt;!-- Selection Inputs --&gt;
+&lt;input type="checkbox"&gt;  &lt;!-- Binary choice --&gt;
+&lt;input type="radio"&gt;     &lt;!-- Mutually exclusive options --&gt;
+&lt;input type="file"&gt;      &lt;!-- File upload --&gt;</pre
+        >
+      </div>
+      <div class="best-practice">
+        Pro Tip: Choose input types wisely for better user experience
+      </div>
+    </div>
+
+    <!-- Slide 4: Form Validation -->
+    <div class="slide" id="slide4">
+      <h1>HTML5 Form Validation</h1>
+      <div class="code-example">
+        <pre>
+&lt;!-- Built-in Validation Attributes --&gt;
+&lt;input type="text" required&gt;           &lt;!-- Must be filled --&gt;
+&lt;input type="number" min="0" max="100"&gt; &lt;!-- Number range --&gt;
+&lt;input type="text" maxlength="50"&gt;     &lt;!-- Max characters --&gt;
+
+&lt;!-- Custom Validation --&gt;
+&lt;input type="text" 
+       pattern="[A-Za-z]+" 
+       title="Letters only"&gt;</pre
+        >
+      </div>
+      <div class="best-practice">
+        Validation improves data quality and user guidance
+      </div>
+    </div>
+
+    <!-- Slide 5: HTML Tables -->
+    <div class="slide" id="slide5">
+      <h1>HTML Tables: Structuring Data</h1>
+      <div class="code-example">
+        <pre>
+&lt;table border="1"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John Doe&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</pre
+        >
+      </div>
+      <div class="best-practice">
+        Use semantic tags like &lt;thead&gt; and &lt;tbody&gt; for better
+        structure
+      </div>
+    </div>
+
+    <!-- Slide 6: Advanced Table Techniques -->
+    <div class="slide" id="slide6">
+      <h1>Advanced Table Techniques</h1>
+      <div class="code-example">
+        <pre>
+&lt;!-- Merging Cells --&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td colspan="2"&gt;Spans two columns&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Spans two rows&lt;/td&gt;
+        &lt;td&gt;Cell 1&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre
+        >
+      </div>
+      <div class="best-practice">
+        Use colspan and rowspan for complex layouts
+      </div>
+    </div>
+
+    <!-- Slide 7: Combining Forms and Tables -->
+    <div class="slide" id="slide7">
+      <h1>Forms Within Tables</h1>
+      <div class="code-example">
+        <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Field&lt;/th&gt;
+        &lt;th&gt;Input&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Username&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type="text" required&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Email&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type="email" required&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre
+        >
+      </div>
+      <div class="best-practice">
+        Combine forms and tables for structured data entry
+      </div>
+    </div>
+
+    <!-- Slide 8: Best Practices -->
+    <div class="slide" id="slide8">
+      <h1>Best Practices</h1>
+      <ul style="text-align: left; max-width: 80%">
+        <li>Always use semantic HTML</li>
+        <li>Implement client-side and server-side validation</li>
+        <li>Make forms accessible with proper labels</li>
+        <li>Use appropriate input types</li>
+        <li>Provide clear error messages</li>
+        <li>Consider responsive design</li>
+      </ul>
+      <div class="best-practice">
+        Good practices lead to better user experience
+      </div>
+    </div>
+
+    <!-- Slide 9: Closing Slide -->
+    <div class="slide" id="slide9">
+      <h1>Questions?</h1>
+      <p>Thank you for attending!</p>
+      <div class="best-practice">
+        Keep learning and improving your web development skills
+      </div>
+    </div>
+  </body>
+</html>
