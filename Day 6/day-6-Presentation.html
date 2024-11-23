@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Presentation</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <div class="slide">
+      <h1>Introduction to CSS: Syntax, Box Model, and Selectors</h1>
+    </div>
+
+    <div class="slide">
+      <h2>What is CSS?</h2>
+      <p><strong>Full Form:</strong> Cascading Style Sheets</p>
+      <p>
+        CSS is a stylesheet language used to control the presentation of web
+        documents written in HTML.
+      </p>
+      <p><strong>Role in Web Development:</strong></p>
+      <ul>
+        <li>Adds styles (colors, fonts, layouts) to web pages.</li>
+        <li>Separates content from design.</li>
+        <li>Enhances user experience and aesthetics.</li>
+      </ul>
+      <div><strong>Example:</strong> Plain HTML vs Styled HTML</div>
+      <div class="code-example">
+        <pre><code>/* Plain HTML */
+<p>Hello, World!</p>
+
+/* Styled HTML with CSS */
+p {
+    color: blue;
+    font-size: 20px;
+    text-align: center;
+}</code></pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>History of CSS</h2>
+      <ul>
+        <li><strong>1996:</strong> CSS1 introduced (basic styling).</li>
+        <li>
+          <strong>1998:</strong> CSS2 added features like positioning and
+          z-index.
+        </li>
+        <li>
+          <strong>2011:</strong> CSS3 modularized, bringing animations, media
+          queries, and gradients.
+        </li>
+      </ul>
+      <p class="info">
+        <strong>Current Status:</strong> A cornerstone of modern web
+        development.
+      </p>
+      <div class="info">
+        <strong>Fun Fact:</strong> Before CSS, web design relied on table-based
+        layouts and inline styling.
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>CSS Syntax</h2>
+      <p>A CSS rule is structured as:</p>
+      <div class="code-example">
+        <pre><code>/* Selector */
+selector {
+    property: value;
+}</code></pre>
+      </div>
+      <p><strong>Example:</strong> Changing heading color and size:</p>
+      <div class="code-example">
+        <pre><code>h1 {
+    color: blue;
+    font-size: 24px;
+}</code></pre>
+      </div>
+      <div class="info">
+        <strong>Tip:</strong> Always end each CSS declaration with a semicolon
+        (;).
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Types of CSS</h2>
+      <ul>
+        <li>
+          <strong>Inline CSS:</strong> Style directly in the HTML element.
+        </li>
+        <div class="code-example">
+          <pre><code>&lt;p style="color: red;"&gt;This is red text.&lt;/p&gt;</code></pre>
+        </div>
+        <li>
+          <strong>Internal CSS:</strong> Style within a &lt;style&gt; tag in the
+          &lt;head&gt;.
+        </li>
+        <div class="code-example">
+          <pre><code>&lt;style&gt;
+p { color: green; }
+&lt;/style&gt;</code></pre>
+        </div>
+        <li><strong>External CSS:</strong> Styles in a separate file.</li>
+        <div class="code-example">
+          <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+        </div>
+      </ul>
+      <div class="best-practice">
+        <strong>Best Practice:</strong> Use external CSS for maintainability and
+        scalability.
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Box Model Overview</h2>
+      <p>
+        The box model describes how elements are structured in a webpage layout.
+      </p>
+      <ul>
+        <li>
+          <strong>Content:</strong> The actual content inside the box (e.g.,
+          text or images).
+        </li>
+        <li>
+          <strong>Padding:</strong> Space between the content and the border.
+        </li>
+        <li><strong>Border:</strong> Surrounds the padding (optional).</li>
+        <li><strong>Margin:</strong> Space outside the border.</li>
+      </ul>
+      <div class="code-example">
+        <pre><code>/* Example Box Model */
+div {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}</code></pre>
+      </div>
+
+      <div class="slide">
+        Key Box Modal properties
+        <ul>
+          <li><strong>Width and Height:</strong> Size of the content area.</li>
+          <div class="code-example">
+            <pre><code>
+/* Width and Height Example */
+div {
+
+    width: 300px;
+    height: 200px;
+}</code></pre>
+          </div>
+          <li><strong>Padding:</strong> Space between content and border.</li>
+          <div class="code-example">
+            <pre><code>
+/* Padding Example */
+div {
+    padding: 20px;
+}</code></pre>
+          </div>
+          <li><strong>Border:</strong> Line surrounding the padding.</li>
+          <div class="code-example">
+            <pre><code>
+/* Border Example */
+div {
+    border: 5px solid black;
+}</code></pre>
+          </div>
+          <li><strong>Margin:</strong> Space outside the border.</li>
+          <div class="code-example">
+            <pre><code>
+/* Margin Example */
+div {
+    margin: 10px;
+}</code></pre>
+          </div>
+        </ul>
+      </div>
+
+      <div class="slide">
+        Box Sizing Modes
+        <ul>
+          <li>
+            <strong>Content-Box:</strong> Width and height include content.
+          </li>
+          <div class="code-example">
+            <pre><code>
+/* Content-Box Example */
+div {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}</code></pre>
+          </div>
+          <li>
+            <strong>Border-Box:</strong> Width and height include padding and
+            border.
+          </li>
+          <div class="code-example">
+            <pre><code>
+/* Border-Box Example */
+.box {
+  width: 200px;              /* Content width */
+  height: 100px;             /* Content height */
+  padding: 20px;             /* Adds 20px space around the content */
+  border: 5px solid #3498db; /* A 5px solid blue border */
+  margin: 15px;              /* Adds 15px space outside the box */
+  background-color: #f8f9fa; /* Light gray background color */
+  box-sizing: border-box;    /* Includes padding and border in the width/height */
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model Example</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 100px;
+      padding: 20px;
+      border: 5px solid #3498db;
+      margin: 15px;
+      background-color: #f8f9fa;
+      box-sizing: border-box; /* Toggle this to "content-box" for a different effect */
+    }
+  </style>
+</head>
+<body>
+  <div class="box">This is a box.</div>
+</body>
+</html>
+/* Rendered Box Dimensions */
+With box-sizing: content-box:
+
+Total Width = 200px (width) + 20px (left padding) + 20px (right padding) + 5px (left border) + 5px (right border) = 250px
+Total Height = 100px (height) + 20px (top padding) + 20px (bottom padding) + 5px (top border) + 5px (bottom border) = 150px
+
+
+With box-sizing: border-box:
+The total width and height remain 200px and 100px, respectively, because padding and border are included.
+</code></pre>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>CSS Selectors</h2>
+      <p><strong>Common Selectors:</strong></p>
+      <ul>
+        <li>Universal Selector: <code>*</code></li>
+        <div class="code-example">
+          <pre><code>
+/* Universal Selector Example */
+* {
+    margin: 0;
+    padding: 0;
+}</code></pre>
+        </div>
+        <li>Type Selector: <code>h1, p</code></li>
+        <div class="code-example">
+          <pre><code>
+/* Type Selector Example */
+h1 {
+    color: blue;
+}
+        </code></pre>
+        </div>
+        <li>Class Selector: <code>.className</code></li>
+        <div class="code-example">
+          <pre><code>
+/* Class Selector Example */
+  .highlight {
+      background-color: yellow;
+  }
+  
+  &lt;p class="highlight"&gt;This text is highlighted.&lt;/p&gt;</code></pre>
+        </div>
+
+        <li>ID Selector: <code>#idName</code></li>
+        <div class="code-example">
+          <pre><code>
+/* ID Selector Example */
+#main-content {
+    font-size: 18px;
+}
+          </code></pre>
+        </div>
+
+        <li>Grouping Selector: <code>h1, h2, h3</code></li>
+        <div class="code-example">
+          <pre><code>
+/* Grouping Selector Example */
+h1, h2, h3 {
+    color: blue;
+}
+          </code></pre>
+        </div>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h2>Advanced Selectors</h2>
+      <ul>
+        <li>
+          <strong> Attribute Selectors</strong> (e.g.,
+          <code>[type="text"]</code>
+          ).
+        </li>
+        <div class="code-example">
+          <pre><code>
+/* Attribute Selector Example */
+input[type="text"] {
+  border: 1px solid grey;
+}
+          </code></pre>
+        </div>
+
+        <div class="code-example">
+          <pre><code>
+/* Attribute Selector with Partial Match */
+a[href^="https"] {
+  color: green;
+}
+          </code></pre>
+        </div>
+
+        <div class="code-example">
+          <pre><code>
+/* Attribute Selector with Case Insensitive Match */
+input[type="text"] {
+  background-color: lightblue;  
+}
+          </code></pre>
+        </div>
+        <li>
+          <strong>Combinators:</strong> Descendant (<code>div p</code>), Child
+          (<code>div > p</code>), etc.
+        </li>
+        <div class="code-example">
+          <pre><code>
+/* Descendant Selector (A B): Selects elements inside another element. */
+div p {
+  color: grey;
+}
+          </code></pre>
+        </div>
+        <div class="code-example">
+          <pre><code>
+/*Child Selector (A > B): Selects direct children.*/
+ul > li {
+  margin: 10px;
+}
+          </code></pre>
+        </div>
+        <div class="code-example">
+          <pre><code>
+/*Adjacent Sibling Selector (A + B): Selects the first sibling immediately following another.*/
+h1 + p {
+  color: darkblue;
+}
+          </code></pre>
+        </div>
+
+        <div class="code-example">
+          <pre><code>
+/*General Sibling Selector (A ~ B): Selects siblings that follow another sibling.*/
+h1 ~ p {
+  color: darkblue;
+}
+          </code></pre>
+        </div>
+        <li>
+          <strong>Pseudo-classes:</strong> Add styles based on element states
+          (<code>a:hover</code>).
+        </li>
+        <div class="code-example">
+          <pre><code>
+/* Pseudo-class Example */
+a:hover {
+  color: red;
+}
+          </code></pre>
+        </div>
+        <div class="code-example">
+          <pre><code>
+/*:nth-child(n): Selects the nth child of its parent.*/
+li:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+          </code></pre>
+        </div>
+
+        <div class="code-example">
+          <pre><code>
+/*:not(selector): Selects elements that do not match a specific selector.*/
+p:not(.special) {
+  color: blue;
+}
+          </code></pre>
+        </div>
+
+        <div class="code-example">
+          <pre><code>
+/*:first-child: Selects the first child of its parent.*/
+li:first-child {
+  font-weight: bold;
+}
+          </code></pre>
+        </div>
+        <div class="code-example">
+          <pre><code>
+/*:last-child: Selects the last child of its parent.*/
+li:last-child {
+  font-style: italic;
+}
+          </code></pre>
+        </div>
+
+        <li>
+          <strong>Pseudo-elements:</strong> Style parts of an element
+          (<code>p::first-line</code>).
+        </li>
+        <div class="code-example">
+          <pre><code> 
+/* Pseudo-element Example */
+p::first-line {
+  font-weight: bold;  
+}
+          </code></pre>
+        </div>
+
+        <div class="code-example">
+          <pre><code>
+/*::before and ::after: Insert content before and after an element.*/
+p::before {
+  content: "Read this: ";
+  font-weight: bold;
+}
+
+p::after {
+  content: " (End of article)";
+  font-style: italic;
+}
+          </code></pre>
+        </div>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h2>Future Trends</h2>
+      <ul>
+        <li>Custom properties (--variable usage).</li>
+        <div class="code-example">
+          <pre>
+            <code>
+:root {
+  --primary-color: #3498db;
+  --font-size: 16px;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-size: var(--font-size);
+}
+
+button {
+  color: white;
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: calc(var(--font-size) * 1.25); /* Example of using variables in calculations */
+}
+            </code>
+          </pre>
+        </div>
+        <li>CSS Houdini APIs for deeper browser-level control.</li>
+      </ul>
+    </div>
+  </body>
+</html>
