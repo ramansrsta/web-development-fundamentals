@@ -3,6 +3,7 @@
   --secondary-color: #2c3e50;
   --active-color: #e74c3c;
   --hover-color: rgb(19, 29, 168);
+  --static-color: green;
   --primary-font: "Roboto", sans-serif;
   --secondary-font: "Open Sans", sans-serif;
   --primary-font-size: 1.6rem;
@@ -25,7 +26,7 @@
 }
 
 .navigation {
-  background-color: green;
+  background-color: var(--static-color);
   padding: 1rem;
 }
 
