@@ -1,0 +1,79 @@
+:root {
+  --primary-color: transparent;
+  --secondary-color: #2c3e50;
+  --active-color: #e74c3c;
+  --hover-color: rgb(19, 29, 168);
+  --static-color: green;
+  --primary-font: "Roboto", sans-serif;
+  --secondary-font: "Open Sans", sans-serif;
+  --primary-font-size: 1.6rem;
+  --secondary-font-size: 1.4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.heading {
+  font-family: var(--primary-font);
+  font-size: var(--primary-font-size);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 1rem;
+}
+
+.navigation {
+  background-color: var(--static-color);
+  padding: 1rem;
+  position: static;
+  width: 100%;
+}
+
+.navigation ul {
+  list-style-type: none;
+}
+
+.navigation ul li {
+  display: inline;
+  margin-right: 1rem;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.navigation ul li a:hover {
+  color: var(--hover-color);
+}
+
+.navigation ul li a.active {
+  color: var(--active-color);
+}
+
+.content {
+  text-align: center;
+  background-color: var(--primary-color);
+  height: 100vh;
+}
+
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  text-align: center;
+  padding: 1rem;
+}
+
+.block-element {
+  background: var(--active-color);
+
+  width: 50%;
+}
+
+.inline-element {
+  background: red;
+  display: block;
+}

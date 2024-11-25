@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design and Media Queries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .slide {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h2>Introduction to Responsive Design</h2>
+        <p>Responsive design ensures a website looks and works well across a variety of devices and screen sizes. It leverages flexible layouts, images, and CSS media queries to create a seamless user experience.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Mobile-First Design Principles</h2>
+        <p>Mobile-first design involves designing for smaller screens first and progressively enhancing for larger screens. This ensures the core functionality is prioritized and works well on all devices.</p>
+        <pre class="code-example">
+/* Example of mobile-first CSS */
+body {
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px;
+    }
+}
+        </pre>
+    </div>
+
+    <div class="slide">
+        <h2>Media Queries</h2>
+        <p>Media queries allow for applying styles conditionally based on device properties such as screen width, height, orientation, and resolution.</p>
+        <pre class="code-example">
+/* Basic media query example */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+}
+        </pre>
+    </div>
+
+    <div class="slide">
+        <h2>Responsive Font Sizes</h2>
+        <p>Using relative units like <code>em</code>, <code>rem</code>, and percentages for font sizes helps maintain consistency across devices.</p>
+        <pre class="code-example">
+/* Example of using rem for responsive typography */
+html {
+    font-size: 16px; /* Base font size */
+}
+
+h1 {
+    font-size: 2rem; /* 32px */
+}
+
+p {
+    font-size: 1rem; /* 16px */
+}
+        </pre>
+    </div>
+
+    <div class="slide">
+        <h2>Testing for Responsiveness</h2>
+        <p>Tools like browser dev tools, responsive design testing tools, and actual device testing are essential to ensure a site is fully responsive.</p>
+        <ul>
+            <li><strong>Browser Dev Tools:</strong> Simulate different screen sizes and resolutions.</li>
+            <li><strong>Responsive Design Testing Tools:</strong> Use tools like Chrome's Lighthouse or online services.</li>
+            <li><strong>Physical Device Testing:</strong> Test on actual devices for real-world feedback.</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>Other Important Topics</h2>
+        <ul>
+            <li><strong>Flexible Grids:</strong> Use CSS Grid or Flexbox for fluid layouts.</li>
+            <li><strong>Adaptive Images:</strong> Use <code>srcset</code> and <code>sizes</code> attributes for responsive images.</li>
+            <li><strong>Viewport Meta Tag:</strong> Include <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> for proper scaling on mobile devices.</li>
+        </ul>
+        <pre class="code-example">
+<!-- Viewport Meta Tag Example -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </pre>
+    </div>
+</body>
+</html>
