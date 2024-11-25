@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Positioning, Display Properties, Flexbox and Grid</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <h1>CSS Positioning, Display Properties Flexbox and Grid</h1>
+
+    <div class="slide">
+      <h2>1. Positioning in CSS</h2>
+      <p>
+        CSS positioning determines how elements are placed on the page. Here are
+        the main positioning values:
+      </p>
+
+      <h3>1.1 static (Default Positioning)</h3>
+      <ul>
+        <li>The default behavior of elements.</li>
+        <li>Elements flow naturally in the document.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>
+{ position: static; }
+        </code> </pre>
+      </div>
+
+      <h3>1.2 relative</h3>
+      <ul>
+        <li>The element is positioned relative to its normal position.</li>
+        <li>Use top, right, bottom, and left to offset.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>
+.relative-box {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+</code> </pre>
+      </div>
+
+      <div class="best-practice">
+        Use relative positioning as a reference for positioning child elements.
+      </div>
+
+      <h3>1.3 absolute</h3>
+      <ul>
+        <li>
+          The element is positioned relative to the nearest positioned
+          (non-static) ancestor.
+        </li>
+        <li>Removed from the normal document flow.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>
+.parent {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+</code> </pre>
+      </div>
+      <div class="info">
+        If no ancestor is positioned, the element positions itself relative to
+        the html (root element).
+      </div>
+
+      <h3>1.4 fixed</h3>
+      <ul>
+        <li>The element is positioned relative to the viewport.</li>
+        <li>Stays in place even during scrolling.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+}
+</code> </pre>
+      </div>
+
+      <div class="info">Use fixed positioning for fixed headers, footers.</div>
+
+      <h3>1.5 sticky</h3>
+      <ul>
+        <li>A hybrid of relative and fixed.</li>
+        <li>
+          Behaves as relative until a specific scroll point is reached, then
+          acts like fixed.
+        </li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  background-color: yellow;
+}
+</code> </pre>
+      </div>
+      <div class="info">
+        Use sticky for slides like table headers or navigation bars.
+      </div>
+
+      <h3>1.6 z-index</h3>
+      <ul>
+        <li>Controls the stacking order of elements.</li>
+        <li>Higher values appear on top of lower values.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2000;
+}
+
+</code> </pre>
+      </div>
+      <div class="info">
+        Use z-index to control the stacking order of elements like modals,
+        dropdowns.
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>2. Display Properties</h2>
+      <p>
+        The <code>display</code> property controls the box type of an element
+        and its behavior in the document flow.
+      </p>
+
+      <h3>2.1 block</h3>
+      <ul>
+        <li>The element takes up the full width of its parent container.</li>
+        <li>Starts on a new line.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>div { display: block; }</code> </pre>
+      </div>
+
+      <h3>2.2 inline</h3>
+      <ul>
+        <li>The element takes up only as much width as its content.</li>
+        <li>Doesn’t start on a new line.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>span { display: inline; }      </code> </pre>
+      </div>
+
+      <h3>2.3 inline-block</h3>
+      <ul>
+        <li>Behaves like inline, but allows setting width and height.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>
+.menu-item {
+  display: inline-block;
+  padding: 10px;
+  background-color: #ddd;
+}
+</code> </pre>
+      </div>
+
+      <h3>2.4 none</h3>
+      <ul>
+        <li>Hides the element entirely.</li>
+      </ul>
+      <div class="code-example">
+        <pre> <code>
+.hidden {
+  display: none;
+}
+</code> </pre>
+      </div>
+      <div class="info">
+        <ul>
+          <li>Combine inline-block for horizontal layouts without float.</li>
+          <li>Use none for toggling visibility dynamically via JavaScript.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>3. Flexbox (Flexible Box Layout)</h2>
+      <p>
+        Flexbox is a powerful CSS layout model for distributing space and
+        aligning items.
+      </p>
+
+      <h3>3.1 Setting Up Flexbox</h3>
+      <div class="code-example">
+        <pre> <code>
+.container {
+  display: flex;
+}
+</code> </pre>
+      </div>
+
+      <h2>3.2 Key Flexbox Properties</h2>
+      <div class="code-example">
+        <pre> <code>
+.container {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+</code> </pre>
+      </div>
+
+      <h3>flex-direction</h3>
+      <i>Controls the direction of the items in the container.</i>
+      <ul>
+        <li>row (default): Items are placed horizontally.</li>
+        <li>column: Items are placed vertically.</li>
+      </ul>
+      <div class="code-example">
+        <pre>
+          <code>
+            .container {
+              flex-direction: row; /* Horizontal */
+            }
+          </code>
+        </pre>
+      </div>
+
+      <h3>justify-content</h3>
+      <i>Aligns items horizontally in the container.</i>
+      <ul>
+        <li>
+          flex-start (default), center, space-between, space-around, flex-end
+        </li>
+      </ul>
+      <div class="code-example">
+        <pre>
+          <code>
+            .container {
+              justify-content: center; /* Center items */
+            }
+          </code>
+        </pre>
+      </div>
+
+      <h3>align-items</h3>
+      <i>Aligns items vertically in the container.</i>
+      <ul>
+        <li>stretch (default), center, flex-start, flex-end</li>
+      </ul>
+      <div class="code-example">
+        <pre>
+          <code>
+            .container {
+              align-items: center; /* Center items vertically */
+            }
+          </code>
+        </pre>
+      </div>
+
+      <h3>flex-wrap</h3>
+      <i>Allows items to wrap onto multiple lines.</i>
+      <div class="code-example">
+        <pre>
+          <code>
+            .container {
+              flex-wrap: wrap;
+            }
+          </code>
+        </pre>
+      </div>
+
+      <h3>gap</h3>
+      <i>Adds spacing between flex items.</i>
+      <div class="code-example">
+        <pre>
+          <code>
+            .container {
+              gap: 10px;
+            }
+          </code>
+        </pre>
+      </div>
+
+      <h2>3.3 Child Flex Properties</h2>
+      <div class="code-example">
+        <pre> <code>
+.item {
+  flex: 1;
+  align-self: flex-end;
+}
+</code> </pre>
+      </div>
+
+      <h3>flex</h3>
+      <i>Specifies the flex-grow, flex-shrink, and flex-basis values.</i>
+      <div class="code-example">
+        <pre>
+          <code>
+            .item {
+              flex: 1 1 150px;
+            }
+            <div style="display: flex; gap: 10px;">
+              <div style="flex: 2 1 150px; background: lightblue; padding: 10px;">Card 1</div>
+              <div style="flex: 1 1 150px; background: lightgreen; padding: 10px;">Card 2</div>
+              <div style="flex: 1 0 150px; background: lightcoral; padding: 10px;">Card 3</div>
+            </div>
+          </code>
+        </pre>
+      </div>
+
+      <h3>align-self</h3>
+      <i>Overrides align-items for individual items.</i>
+      <div class="code-example">
+        <pre>
+          <code>
+            .item {
+              align-self: flex-end;
+            }
+          </code>
+        </pre>
+      </div>
+
+      <div class="slide">
+        <h3>Practical Example</h3>
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <title>CSS Lecture</title>
+            <style>
+              /* Flexbox Example */
+              .flex-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 15px;
+                padding: 20px;
+                background-color: #f5f5f5;
+              }
+              .flex-item {
+                background-color: #3498db;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="flex-container">
+              <div class="flex-item">Item 1</div>
+              <div class="flex-item">Item 2</div>
+              <div class="flex-item">Item 3</div>
+            </div>
+          </body>
+        </html>
+
+        <div class="best-practice">
+          Flex Box Best Practices
+          <br />
+          Fallbacks: Provide fallbacks for older browsers that don’t support
+          Flexbox.
+          <br />
+          Avoid Overuse: Use Flexbox for layout structure, not for small
+          alignments where simpler CSS would suffice.
+          <br />
+          Combine Flexbox and Grid: Use Flexbox for one-dimensional layouts and
+          CSS Grid for two-dimensional layouts.
+          <br />
+          Debugging Tools: Use browser developer tools to visualize flex
+          containers and properties.
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>4. Grid Layout : (Two Dimensional Box Layout)</h2>
+      <i
+        >CSS Grid Layout is a two-dimensional layout system in CSS that allows
+        you to design web layouts in rows and columns. It offers control over
+        alignment, spacing, and positioning of items.</i
+      >
+
+      <div class="slide">
+        <h2>Grid Basics</h2>
+        <h3>1. Grid Container</h3>
+        <ul>
+          <li>
+            To use Grid, set the display property to grid or inline-grid on a
+            container.
+          </li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>
+.container {
+  display: grid;  
+}
+</code> </pre>
+        </div>
+
+        <h3>2. Grid Properties</h3>
+        <ul>
+          <li>
+            Define columns and rows using the grid-template-columns and
+            grid-template-rows properties.
+          </li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>
+.container {
+  display: grid;
+  grid-template-columns: 100px 200px 1fr;
+  grid-template-rows: 50px auto 100px;
+}
+
+
+- 100px, 200px: Fixed sizes.
+- 1fr: Fractional unit that divides remaining space.
+- auto: Adjusts size based on content.
+
+<div class="container" style="display: grid; grid-template-columns: 1fr 2fr; grid-template-rows: 100px 200px;">
+  <div style="background: lightblue;">Item 1</div>
+  <div style="background: lightgreen;">Item 2</div>
+  <div style="background: lightcoral;">Item 3</div>
+</div>
+</code> </pre>
+        </div>
+
+        <h3>3. Grid Gap</h3>
+        <ul>
+          <li>Control spacing between rows and columns.</li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>
+            .container {
+              gap: 10px; /* Equal gap between rows and columns */
+              row-gap: 15px; /* Row-specific spacing */
+              column-gap: 20px; /* Column-specific spacing */
+            }
+</code> </pre>
+        </div>
+
+        <h3>Spanning Items: grid-column and grid-row</h3>
+        <ul>
+          <li>Position and stretch items across specific rows or columns.</li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>
+.item {
+  grid-column: 1 / 3; /* Span columns 1 to 3 */
+  grid-row: 1 / 2; /* Span rows 1 to 2 */
+}
+
+<div class="container" style="display: grid; grid-template-columns: 100px 100px 100px; gap: 10px;">
+  <div style="background: lightblue; grid-column: 1 / 3;">Spanning 2 Columns</div>
+  <div style="background: lightgreen;">Item 2</div>
+  <div style="background: lightcoral;">Item 3</div>
+</div>
+</code> </pre>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>Grid Advanced</h2>
+
+        <h3>1. repeat() Function</h3>
+        <ul>
+          <li>Repeat a pattern of columns or rows.</li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 100px);
+}
+</code> </pre>
+        </div>
+
+        <h3>2. Auto Sizing Tracks</h3>
+        <i>Automatically fit items into available space.</i>
+        <ul>
+          <li>auto-fit: Adjusts items to fill available space.</li>
+          <li>
+            auto-fill: Creates empty tracks if items don’t fill the space.
+          </li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+<div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+  <div style="background: lightblue;">Item 1</div>
+  <div style="background: lightgreen;">Item 2</div>
+  <div style="background: lightcoral;">Item 3</div>
+</div>
+</code> </pre>
+        </div>
+
+        <h3>3. Grid Areas</h3>
+        <i>Define named grid areas for layout.</i>
+        <ul>
+          <li>Use grid-template-areas to define areas.</li>
+          <li>Assign areas to items using grid-area.</li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>
+            .container {
+              grid-template-areas:
+                "header header"
+                "sidebar content";
+            }
+            .item1 { grid-area: header; }
+            .item2 { grid-area: sidebar; }
+            .item3 { grid-area: content; }
+
+
+            <div class="container" style="display: grid; grid-template-areas: 'header header' 'sidebar content'; grid-template-columns: 1fr 3fr; gap: 10px;">
+              <div style="background: lightblue; grid-area: header;">Header</div>
+              <div style="background: lightgreen; grid-area: sidebar;">Sidebar</div>
+              <div style="background: lightcoral; grid-area: content;">Content</div>
+            </div>
+</code> </pre>
+        </div>
+
+        <h3>4. Grid Auto Placement</h3>
+        <i>Automatically place items in the grid.</i>
+        <ul>
+          <li>grid-auto-flow: Controls the direction of auto-placement.</li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>  
+.container {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+<div class="container" style="display: grid; grid-auto-flow: column; grid-template-columns: repeat(3, 100px); gap: 10px;">
+  <div style="background: lightblue;">Item 1</div>
+  <div style="background: lightgreen;">Item 2</div>
+  <div style="background: lightcoral;">Item 3</div>
+</div>
+</code> </pre>
+        </div>
+
+        <h3>Aligning Items</h3>
+        <i>Control alignment of items in the grid.</i>
+        <ul>
+          <li>justify-items: Aligns items horizontally.</li>
+          <li>align-items: Aligns items vertically.</li>
+        </ul>
+        <div class="code-example">
+          <pre> <code>
+.container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+<div class="container" style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px; justify-items: center; align-items: center;">
+  <div style="background: lightblue;">Item 1</div>
+  <div style="background: lightgreen;">Item 2</div>
+  <div style="background: lightcoral;">Item 3</div>
+</div>
+</code> </pre>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div>
+          <h2>Practical Example</h2>
+          <div
+            class="container"
+            style="
+              display: grid;
+              grid-template-areas: 'header header' 'nav content' 'footer footer';
+              grid-template-columns: 1fr 3fr;
+              grid-template-rows: 50px auto 50px;
+              gap: 10px;
+            "
+          >
+            <div style="background: lightblue; grid-area: header">Header</div>
+            <div style="background: lightgreen; grid-area: nav">Navigation</div>
+            <div style="background: lightcoral; grid-area: content">
+              Content
+            </div>
+            <div style="background: lightgray; grid-area: footer">Footer</div>
+          </div>
+        </div>
+
+        <div class="best-practice">
+          Grid Best Practices
+          <br />
+          Use minmax() for Responsive Design: Combines minimum and maximum sizes
+          to create flexible grids. Example: grid-template-columns: repeat(3,
+          minmax(100px, 1fr));
+          <br />
+          Avoid Overlapping Items Accidentally: Use explicit grid definitions
+          like grid-area to manage layout.
+          <br />
+          Named Grid Areas for Readability: Simplify layout debugging by using
+          grid-template-areas.
+          <br />
+          Leverage auto-fit for Responsive Layouts: Automatically adjust item
+          placement without fixed column counts.
+          <br />
+          Experiment with DevTools: Use browser DevTools to visualize grid
+          structure for debugging.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
