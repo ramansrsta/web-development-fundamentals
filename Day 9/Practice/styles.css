@@ -1,0 +1,31 @@
+:root {
+  --primary-color: lightBlue;
+  --secondary-color: lightGreen;
+  --tertiary-color: lightCoral;
+}
+
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.item1 {
+  background: var(--primary-color);
+  grid-area: "item1";
+  padding: 20px;
+}
+
+.item2 {
+  background: var(--secondary-color);
+  grid-area: "item2";
+  padding: 20px;
+}
+
+.item3 {
+  background: var(--tertiary-color);
+  grid-area: "item3";
+  padding: 20px;
+}
