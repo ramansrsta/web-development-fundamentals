@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>My Portfolio</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero">
+        <picture>
+          <source
+            srcset="
+              hero-large.jpg  1200w,
+              hero-medium.jpg  768w,
+              hero-small.jpg   480w
+            "
+            sizes="100vw"
+          />
+          <img src="hero-fallback.jpg" alt="Hero Image" />
+        </picture>
+        <h2>Welcome to My World</h2>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+          I am a passionate front-end developer skilled in creating responsive,
+          user-friendly websites.
+        </p>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <img src="project1.jpg" alt="Project 1" />
+            <h3>Project 1</h3>
+            <p>A responsive e-commerce website.</p>
+          </div>
+          <div class="project-card">
+            <img src="project2.jpg" alt="Project 2" />
+            <h3>Project 2</h3>
+            <p>A portfolio website with responsive design.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form action="#">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 My Portfolio</p>
+    </footer>
+  </body>
+</html>

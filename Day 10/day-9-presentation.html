@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Design and Media Queries</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <div class="slide">
+      <h2>Introduction to Responsive Design</h2>
+      <p>
+        Responsive design is about creating adaptable layouts and experiences
+        that function well across various devices. Here’s an in-depth dive of
+        core principles.
+      </p>
+
+      <div class="slide">
+        <h2>Fluid Grid Layouts</h2>
+        <ul>
+          <li>Use percentage-based widths rather than fixed units.</li>
+          <li>
+            Combine CSS Grid or Flexbox with relative units for dynamic layouts.
+          </li>
+        </ul>
+        <div class="code-example">
+          <pre>
+            .container { display: flex; flex-wrap: wrap; } 
+            .item { flex: 1 1 30%;}
+          </pre>
+        </div>
+      </div>
+      <div class="slide">
+        <h2>Flexible Media (Videos, Images)</h2>
+        <ul>
+          <li>
+            Media should scale with the viewport while maintaining aspect ratio.
+          </li>
+          <li>Use max-width and height: auto for images.</li>
+          <li>Employ object-fit for videos.</li>
+        </ul>
+        <div class="code-example">
+          <pre>
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+            
+            video {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            img
+            src="default-image.jpg" 
+            srcset="
+                small-image.jpg 480w, 
+                medium-image.jpg 768w, 
+                large-image.jpg 1200w" 
+            sizes="(max-width: 480px) 100vw, 
+                   (max-width: 768px) 50vw, 
+                   33vw"
+            alt="A beautiful responsive image"
+
+            Explanation
+            Attributes in Use:
+            src:
+            This is the fallback image if srcset is not supported by the browser.
+            Example: src="default-image.jpg"
+
+            srcset:
+            Contains a comma-separated list of image file URLs with their corresponding widths.
+            Format: <image-url> <descriptor>
+            small-image.jpg 480w: Serve this image for viewports up to 480px wide.
+            medium-image.jpg 768w: Serve this image for viewports up to 768px wide.
+            large-image.jpg 1200w: Serve this image for viewports up to 1200px wide.
+            
+            sizes:
+            Defines how much space the image should occupy in the viewport.
+            Format: (media condition) <size>, ...
+            (max-width: 480px) 100vw: On screens up to 480px wide, the image will take up 100% of the viewport width (vw).
+            (max-width: 768px) 50vw: On screens between 481px and 768px wide, the image will take up 50% of the viewport width.
+            33vw: Default size when no media conditions are matched (e.g., larger screens).
+            
+          </pre>
+        </div>
+      </div>
+      <div class="slide">
+        <h2>Content Prioritization</h2>
+        <ul>
+          <li>Focus on delivering critical content first.</li>
+          <li>
+            Hide or deprioritize less relevant content for smaller screens.
+          </li>
+        </ul>
+        <div class="code-example">
+          <pre>
+            <div class="container">
+              <div class="critical-content">
+                  <h3>Important Information</h3>
+                  <p>This content is prioritized for all screens.</p>
+              </div>
+              <div class="secondary-content">
+                  <h3>Additional Details</h3>
+                  <p>This content is deprioritized for smaller screens.</p>
+              </div>
+            </div>
+
+            /* Base styles for all devices */
+            .container {
+                padding: 20px;
+            }
+
+            .critical-content {
+                display: block;
+            }
+
+            .secondary-content {
+                display: block; /* Visible by default */
+            }
+
+            /* Hide secondary content on smaller screens */
+            @media (max-width: 600px) {
+                .secondary-content {
+                    display: none;
+                }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="slide">
+        <h2>Break Point Strategy</h2>
+        <ul>
+          <li>Use media queries to define breakpoints.</li>
+          <li>
+            Choose breakpoints based on content and design requirements, not
+            just device sizes.
+          </li>
+        </ul>
+        <div class="code-example">
+          <pre>
+            @media (min-width: 768px) {
+              body {
+                  font-size: 16px;
+                  padding: 2rem;
+                }
+            }
+            
+            @media (min-width: 1200px) {
+                body {
+                    font-size: 18px;
+                    padding: 3rem;
+                }
+            }
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Media Queries</h2>
+      <p>
+        Media queries allow for applying styles conditionally based on device
+        properties such as screen width, height, orientation, and resolution.
+      </p>
+
+      <div class="slide">
+        <h2>How It Works</h2>
+        <p>
+          CSS checks the device's properties and applies specific styles when conditions are met.
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2>How to Use It</h2>
+        <p>
+          Use the <code>@media</code> rule to define media queries.
+        </p>
+        <div class="code-example">
+          <pre>
+            /* Default styles */
+            .container {
+                padding: 10px;
+            }
+            
+            /* Styles for screens 768px or larger */
+            @media (min-width: 768px) {
+                .container {
+                    padding: 20px;
+                }
+            }
+            
+            /* Styles for screens 1200px or larger */
+            @media (min-width: 1200px) {
+                .container {
+                    padding: 40px;
+                }
+            }
+          </pre>
+          </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Mobile-First Design Principles</h2>
+      <p>
+        Mobile-first design involves designing for smaller screens first and
+        progressively enhancing for larger screens. This ensures the core
+        functionality is prioritized and works well on all devices.
+      </p>
+
+      <b>Why use Mobile First Design</b>
+      <p>
+        1. Improved Performance : Smaller screens prioritize efficiency and
+        faster load times.
+      </p>
+      <p>
+        2. Better User Experience : Focus on essential content and features.
+      </p>
+      <p>3. Easier Maintenance : Start simple and add complexity as needed.</p>
+      <p>
+        4. Future-Proofing : Design for the smallest screen and scale up for
+        larger screens.
+      </p>
+      <br />
+      <b>How to Implement Mobile First Design</b>
+
+      <p>
+        1. Start with a simple, single-column layout for mobile devices.
+        <div class="code-example">
+          <pre>
+            body {
+              font-size: 14px;
+              padding: 1rem;
+            }
+          </pre>
+        </div>
+      </p>
+
+      <p>
+        2. Use media queries to add complexity for larger screens.
+        <div class="code-example">
+          <pre>
+            @media (min-width: 768px) {
+              body {
+                  font-size: 16px;
+                  padding: 2rem;
+                }
+            }
+            
+            @media (min-width: 1200px) {
+                body {
+                    font-size: 18px;
+                    padding: 3rem;
+                }
+            }
+          </pre>
+        </div>
+      </p>
+
+      <p>
+        3. Prioritize touch-friendly elements: Larger buttons, input fields, and links. Avoid hover-based interactions.
+        <div class="code-example">
+          <pre>
+            button {
+              padding: 1rem 2rem;
+              font-size: 1.2rem;
+            }
+          </pre>
+        </div>
+      </p>
+
+    </div>
+
+    <div class="slide">
+      <h2>Responsive Font Sizes</h2>
+      <p>
+        Using relative units like <code>em</code>, <code>rem</code>, and
+        percentages for font sizes helps maintain consistency across devices.
+      </p>
+
+      <div class="slide">
+        <h2>Units For Font Sizes</h2>
+  
+        <div>1. Absolute Units 
+        <ul>
+          <li>
+            <strong>px:</strong> Fixed-size units that don't scale with the
+            viewport.
+          </li>
+          <li>
+            <strong>pt:</strong> Points, similar to pixels but used for print
+            styles.
+          </li>
+          <li>
+            <strong>in:</strong> Inches, used for print styles and not
+            recommended for web.
+          </li>
+        </ul>
+        <div class="code-example">
+          <pre>
+            body {
+              font-size: 16px;
+            }
+          </pre>
+        </div>
+        </div>
+
+        <div>2. Relative Units
+        <ul>
+          <li>
+            <strong>em:</strong> Relative to the font size of the parent
+            element.
+          </li>
+          <li>
+            <strong>rem:</strong> Relative to the font size of the root element.
+          </li>
+          <li>
+            <strong>%:</strong> Percentage of the parent element's font size.
+          </li>
+        </ul>
+
+        <div class="code-example">
+          <pre>
+            html { font-size: 16px; }
+            h1 { font-size: 2rem; } /* 32px */
+            h2 { font-size: 150%; } /* 24px */
+            p { font-size: 1em; } /* 16px */
+          </pre>
+        </div>
+        </div>
+
+        <div>3. Viewport Units
+        <ul>
+          <li>
+            <strong>vw:</strong> 1% of the viewport width.
+          </li>
+          <li>
+            <strong>vh:</strong> 1% of the viewport height.
+          </li>
+          <li>
+            <strong>vmin:</strong> 1% of the viewport's smaller dimension.
+          </li>
+          <li>
+            <strong>vmax:</strong> 1% of the viewport's larger dimension.
+          </li>
+        </ul>
+        <div class="code-example">
+          <pre>
+            h1 { font-size: 5vw; } /* 5% of viewport width */
+            p { font-size: 3vh; } /* 3% of viewport height */
+            h2 { font-size: 10vmax; } /* 10% of viewport's larger dimension */
+          </pre>
+          </div>
+          </div>
+
+          <div>4. CSS Clamp Function
+          <ul>
+            <li>
+              <strong>clamp(min, preferred, max):</strong> Sets a font size
+              within a range of values.
+            </li>
+          </ul>
+          <div class="code-example">
+            <pre>
+              h1 { font-size: clamp(2rem, 5vw, 3rem); }
+            </pre>  
+            </div>
+          </div>
+        
+      </div>
+
+      <div class="slide">
+        <h2>When to Use What Font Size Approach</h2>
+        <div>
+          Headings (h1, h2, etc.)
+          <ul>
+            <li>Use clamp() or rem for scalable typography.
+            </li>
+            <li>Ensure they stand out and adapt to the viewport size.</li>
+          </ul>
+          <div class="code-example">
+            <pre>
+              h1 { font-size: clamp(2rem, 5vw, 3rem); }
+            </pre>
+            </div>
+        </div>
+
+        <div>
+          Body Text
+          <ul>
+            <li>Use em or rem for consistent text sizing.</li>
+            <li>Set a base font size on the root element.</li>
+          </ul>
+          <div class="code-example">
+            <pre>
+              html { font-size: 16px; }
+              p { font-size: 1em; }
+            </pre>
+            </div>
+        </div>
+
+        <div>
+          Buttons and Inputs
+          <ul>
+            <li>Use em for relative scaling to surrounding text..</li>
+            <li>Ensure they are touch-friendly and accessible.</li>
+          </ul>
+          <div class="code-example">
+            <pre>
+              button { font-size: 1.2em; }
+            </pre>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+ 
+
+    <div class="slide">
+      <h2>Advanced Techniques</h2>
+      <div class="slide">
+        Container Queries
+        <p>
+          Container queries are a proposed CSS feature that allows styles to be
+          based on the size of a container rather than the viewport. This
+          enables more modular and reusable components.
+        </p>
+        <div class="code-example">
+          <pre>
+            @container (min-width: 30em) {
+              .container {
+                padding: 2rem;
+              }
+            }
+          </pre>
+          </div>
+      </div>
+
+    <div class="slide"> 
+    Feature Queries
+    <p>
+      Feature queries allow for applying styles based on browser support for
+      specific CSS features. This helps ensure a consistent experience across
+      browsers.
+    </p>
+    <div class="code-example">
+      <pre>
+        @supports (display: grid) {
+          .container {
+            display: grid;
+          }
+        }
+      </pre>
+      </div>
+
+    </div>
+    </div>
+
+    <div class="slide">
+      <h2>Testing for Responsiveness</h2>
+      <p>
+        Tools like browser dev tools, responsive design testing tools, and
+        actual device testing are essential to ensure a site is fully
+        responsive.
+      </p>
+      <ul>
+        <li>
+          <strong>Browser Dev Tools:</strong> Simulate different screen sizes
+          and resolutions.
+        </li>
+        <li>
+          <strong>Responsive Design Testing Tools:</strong> Use tools like
+          Chrome's Lighthouse or online services.
+        </li>
+        <li>
+          <strong>Physical Device Testing:</strong> Test on actual devices for
+          real-world feedback.
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
