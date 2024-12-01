@@ -1,0 +1,41 @@
+:root {
+  --primary-color: red;
+  --secondary-color: blue;
+  --tertiary-color: green;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 100px);
+  grid-template-areas:
+    "header header header header header"
+    "aside nav nav nav nav"
+    "aside section section section section"
+    "footer footer footer footer footer";
+}
+
+.item_item1 {
+  background: var(--primary-color);
+  grid-area: header;
+}
+
+.item_item2 {
+  background: var(--secondary-color);
+  grid-area: nav;
+}
+
+.item_item3 {
+  background: var(--tertiary-color);
+  grid-area: aside;
+}
+
+.item_item4 {
+  background: var(--primary-color);
+  grid-area: section;
+}
+
+.item_item5 {
+  background: var(--secondary-color);
+  grid-area: footer;
+}

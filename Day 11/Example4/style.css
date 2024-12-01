@@ -1,0 +1,43 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+html {
+  font-size: 14px;
+}
+
+.heading {
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+/* greater than 576px */
+@media (min-width: 576px) {
+  html {
+    font-size: 16px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+  }
+}
+
+/* greater than 768px */
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+
+  .heading {
+    font-size: 2rem;
+    color: var(--success-color);
+  }
+}
