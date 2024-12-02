@@ -74,6 +74,62 @@
         </div>
       </div>
 
+      <div class="slide" id="framework-setup-methods">
+        <h2>Framework Setup Methods: Detailed Examples</h2>
+
+        <div class="code-example">
+          <h4>1. CDN Installation (Bootstrap)</h4>
+          <pre><code>
+&lt;!-- Bootstrap CSS --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;!-- Bootstrap JavaScript Bundle (with Popper) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+              </code></pre>
+        </div>
+
+        <div class="code-example">
+          <h4>2. npm Installation (Tailwind CSS)</h4>
+          <pre><code>
+# Install via npm
+npm install -D tailwindcss postcss autoprefixer
+
+# Generate configuration files
+npx tailwindcss init -p
+
+# tailwind.config.js
+module.exports = {
+content: [
+  "./src/**/*.{html,js,jsx,ts,tsx}",
+],
+theme: {
+  extend: {},
+},
+plugins: [],
+}
+
+# Add to your CSS file
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+              </code></pre>
+        </div>
+
+        <div class="code-example">
+          <h4>3. Direct Download (Foundation)</h4>
+          <pre><code>
+# Download from official website
+# Extract files into your project
+/css/foundation.min.css
+/js/foundation.min.js
+
+# Include in HTML
+&lt;link rel="stylesheet" href="css/foundation.min.css"&gt;
+&lt;script src="js/foundation.min.js"&gt;&lt;/script&gt;
+              </code></pre>
+        </div>
+      </div>
+
       <div class="slide" id="bootstrap-examples">
         <h2>Bootstrap: A Closer Look</h2>
 
@@ -185,62 +241,9 @@
           </pre>
           </div>
         </div>
+      </div>
 
-        <div class="slide" id="framework-setup-methods">
-          <h2>Framework Setup Methods: Detailed Examples</h2>
-
-          <div class="code-example">
-            <h4>1. CDN Installation (Bootstrap)</h4>
-            <pre><code>
-&lt;!-- Bootstrap CSS --&gt;
-&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
-
-&lt;!-- Bootstrap JavaScript Bundle (with Popper) --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-                </code></pre>
-          </div>
-
-          <div class="code-example">
-            <h4>2. npm Installation (Tailwind CSS)</h4>
-            <pre><code>
-# Install via npm
-npm install -D tailwindcss postcss autoprefixer
-
-# Generate configuration files
-npx tailwindcss init -p
-
-# tailwind.config.js
-module.exports = {
-  content: [
-    "./src/**/*.{html,js,jsx,ts,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-
-# Add to your CSS file
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-                </code></pre>
-          </div>
-
-          <div class="code-example">
-            <h4>3. Direct Download (Foundation)</h4>
-            <pre><code>
-# Download from official website
-# Extract files into your project
-/css/foundation.min.css
-/js/foundation.min.js
-
-# Include in HTML
-&lt;link rel="stylesheet" href="css/foundation.min.css"&gt;
-&lt;script src="js/foundation.min.js"&gt;&lt;/script&gt;
-                </code></pre>
-          </div>
-        </div>
+        
 
         <div class="slide" id="css-preprocessors-deep-dive">
           <h2>CSS Preprocessors: Advanced Techniques</h2>
