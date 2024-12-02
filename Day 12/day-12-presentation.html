@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Frameworks and Preprocessors: In-Depth Guide</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="slide" id="intro">
+        <h1>CSS Frameworks and Preprocessors</h1>
+        <p class="lead">Advanced Techniques for Modern Web Development</p>
+      </div>
+
+      <div class="slide" id="css-frameworks-overview">
+        <h2>CSS Frameworks: Deep Dive</h2>
+        <p>
+          CSS Frameworks are comprehensive styling libraries that provide
+          pre-built components and responsive grid systems.
+        </p>
+
+        <div class="code-example">
+          <h4>Why Use CSS Frameworks?</h4>
+          <ul>
+            <li>Rapid Development: Quickly build responsive layouts</li>
+            <li>Consistency: Standardized design across components</li>
+            <li>Cross-Browser Compatibility</li>
+            <li>Extensive Pre-built Components</li>
+          </ul>
+        </div>
+
+        <div class="code-example">
+          <h4>Installation Methods Comparison</h4>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Pros</th>
+                <th>Cons</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CDN (Content Delivery Network)</td>
+                <td>
+                  - Quickest setup - No local file management - Always
+                  up-to-date
+                </td>
+                <td>
+                  - Requires internet connection - Potential performance
+                  overhead - Less control over versioning
+                </td>
+              </tr>
+              <tr>
+                <td>Local Download</td>
+                <td>- Full control - Works offline - Customizable</td>
+                <td>
+                  - Manual version updates - Requires file management - Larger
+                  initial project size
+                </td>
+              </tr>
+              <tr>
+                <td>Package Managers (npm/yarn)</td>
+                <td>
+                  - Easy dependency management - Version control - Integration
+                  with build tools
+                </td>
+                <td>
+                  - Requires Node.js setup - More complex initial configuration
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="slide" id="bootstrap-examples">
+        <h2>Bootstrap: A Closer Look</h2>
+
+        <div class="code-example">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Responsive Grid System</li>
+            <li>Pre-built Components (Navbar, Cards, Modals)</li>
+            <li>Utility Classes (Spacing, Colors, Text Alignment)</li>
+            <li>Customizable Themes and Styles</li>
+          </ul>
+        </div>
+
+        <div class="slide">
+          <h2>Grid System</h2>
+          <p>Bootstrap uses a 12-column grid for layout.</p>
+          <div class="code-example">
+            <pre>
+            <code>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">Column 1</div>
+                  <div class="col-md-4">Column 2</div>
+                  <div class="col-md-4">Column 3</div>
+                </div>
+              </div>              
+            </code>
+          </pre>
+          </div>
+        </div>
+
+        <div class="slide">
+          <h2>Spacing utilities</h2>
+          <div class="code-example">
+            <pre>
+            <code>
+              <div class="p-3">Padding</div>
+              <div class="m-3">Margin</div>
+            </code>
+          </pre>
+          </div>
+        </div>
+
+        <div class="slide">
+          <h2>FlexBox utilities</h2>
+          <div class="code-example">
+            <pre>
+            <code>
+              <div class="d-flex justify-content-center">Centered</div>
+              <div class="d-flex justify-content-between">Space between</div>
+            </code>
+          </pre>
+          </div>
+        </div>
+
+        <div class="slide">
+          <h2>Typography Classes</h2>
+          <div class="code-example">
+            <pre>
+            <code>
+              <h1 class="display-1">Heading 1</h1>
+              <h2 class="display-2">Heading 2</h2>
+              <h3 class="display-3">Heading 3</h3>
+              <h4 class="display-4">Heading 4</h4>
+              <p class="lead">This Is paragraph</p>
+              <p class="text-primary">Primary Text</p>
+              <p class="text-center">Centered Text</p>
+              <p class="text-uppercase">Uppercase Text</p>
+              <p class="font-weight-bold">Bold Text</p>
+              <p class="text-truncate" style="width: 200px;">This is a very long piece of text that will truncate.</p>
+
+            </code>
+          </pre>
+          </div>
+        </div>
+
+        <div class="slide">
+          <h2>Button Classes</h2>
+          <div class="code-example">
+            <pre>
+            <code>
+              <button class="btn btn-primary">Primary Button</button>
+              <button class="btn btn-secondary">Secondary Button</button>
+              <button class="btn btn-success">Success Button</button>
+              <button class="btn btn-danger">Danger Button</button>
+              <button class="btn btn-warning">Warning Button</button>
+              <button class="btn btn-info">Info Button</button>
+              <button class="btn btn-light">Light Button</button>
+              <button class="btn btn-dark">Dark Button</button>
+              <button class="btn btn-link">Link Button</button>
+            </code>
+          </pre>
+          </div>
+        </div>
+
+        <div class="slide">
+          <h2>Background Classes</h2>
+          <div class="code-example">
+            <pre>
+            <code>
+              <div class="bg-primary text-white">Primary Background</div>
+              <div class="bg-secondary text-white">Secondary Background</div>
+              <div class="bg-success text-white">Success Background</div>
+              <div class="bg-danger text-white">Danger Background</div>
+              <div class="bg-warning  text-white">Warning Background</div>
+              <div class="bg-info text-white">Info Background</div>
+              <div class="bg-light">  Light Background</div>
+              </code>
+          </pre>
+          </div>
+        </div>
+
+        <div class="slide" id="framework-setup-methods">
+          <h2>Framework Setup Methods: Detailed Examples</h2>
+
+          <div class="code-example">
+            <h4>1. CDN Installation (Bootstrap)</h4>
+            <pre><code>
+&lt;!-- Bootstrap CSS --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;!-- Bootstrap JavaScript Bundle (with Popper) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                </code></pre>
+          </div>
+
+          <div class="code-example">
+            <h4>2. npm Installation (Tailwind CSS)</h4>
+            <pre><code>
+# Install via npm
+npm install -D tailwindcss postcss autoprefixer
+
+# Generate configuration files
+npx tailwindcss init -p
+
+# tailwind.config.js
+module.exports = {
+  content: [
+    "./src/**/*.{html,js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+# Add to your CSS file
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+                </code></pre>
+          </div>
+
+          <div class="code-example">
+            <h4>3. Direct Download (Foundation)</h4>
+            <pre><code>
+# Download from official website
+# Extract files into your project
+/css/foundation.min.css
+/js/foundation.min.js
+
+# Include in HTML
+&lt;link rel="stylesheet" href="css/foundation.min.css"&gt;
+&lt;script src="js/foundation.min.js"&gt;&lt;/script&gt;
+                </code></pre>
+          </div>
+        </div>
+
+        <div class="slide" id="css-preprocessors-deep-dive">
+          <h2>CSS Preprocessors: Advanced Techniques</h2>
+
+          <div class="code-example">
+            <h4>Preprocessor Core Concepts</h4>
+            <ul>
+              <li><strong>Variables:</strong> Store and reuse values</li>
+              <li><strong>Nesting:</strong> Mirror HTML structure in CSS</li>
+              <li><strong>Mixins:</strong> Reusable blocks of styles</li>
+              <li>
+                <strong>Functions:</strong> Perform calculations and
+                transformations
+              </li>
+              <li>
+                <strong>Inheritance:</strong> Extend and share style rules
+              </li>
+            </ul>
+          </div>
+
+          <div class="slide" id="scss-intro">
+            <h2>What is SCSS?</h2>
+            <p>
+              SCSS (Sassy CSS) is a preprocessor scripting language that is
+              interpreted or compiled into CSS.
+            </p>
+
+            <div class="code-example">
+              <h4>Key Characteristics</h4>
+              <ul>
+                <li>Superset of CSS (all CSS is valid SCSS)</li>
+                <li>
+                  Adds powerful features like variables, nesting, and mixins
+                </li>
+                <li>Compiled to standard CSS for browser compatibility</li>
+                <li>Improves code organization and maintainability</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="slide" id="scss-setup">
+            <h2>SCSS Setup Methods</h2>
+
+            <div class="code-example">
+              <h4>1. Using Node.js (Recommended)</h4>
+              <pre><code>
+# Install Sass globally
+npm install -g sass
+
+# Or as a project dependency
+npm install -D sass
+
+# Package.json script
+{
+  "scripts": {
+    "sass": "sass --watch input.scss output.css",
+    "sass:production": "sass input.scss output.min.css --style=compressed"
+  }
+}
+
+# Terminal command
+sass --watch styles/:css/
+                </code></pre>
+            </div>
+
+            <div class="code-example">
+              <h4>2. GUI Applications</h4>
+              <ul>
+                <li>Koala</li>
+                <li>Scout-App</li>
+                <li>Prepros</li>
+              </ul>
+            </div>
+
+            <div class="code-example">
+              <h4>3. Command-Line Compilation</h4>
+              <pre><code>
+# Single file compilation
+sass input.scss output.css
+
+# Watch and auto-compile
+sass --watch input.scss:output.css
+
+# Multiple file/directory watching
+sass --watch sass:css
+                </code></pre>
+            </div>
+          </div>
+
+          <div class="slide" id="scss-syntax-basics">
+            <h2>SCSS Syntax Fundamentals</h2>
+
+            <div class="code-example">
+              <h4>1. Variables</h4>
+              <pre><code>
+// Defining variables
+$primary-color: #3498db;
+$font-stack: Helvetica, sans-serif;
+$base-padding: 15px;
+
+// Using variables
+body {
+    font-family: $font-stack;
+    background-color: lighten($primary-color, 40%);
+    padding: $base-padding;
+}
+                </code></pre>
+            </div>
+
+            <div class="code-example">
+              <h4>2. Nesting</h4>
+              <pre><code>
+// Traditional CSS
+.navbar { 
+    background-color: #333; 
+}
+.navbar a { 
+    color: white; 
+}
+.navbar a:hover { 
+    text-decoration: underline; 
+}
+
+// SCSS Nesting
+.navbar {
+    background-color: #333;
+    
+    a {
+        color: white;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+                </code></pre>
+            </div>
+          </div>
+
+          <div class="slide" id="scss-advanced-features">
+            <h2>Advanced SCSS Features</h2>
+
+            <div class="code-example">
+              <h4>1. Mixins</h4>
+              <pre><code>
+// Mixin with default parameter
+@mixin flex-center($direction: row, $justify: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: center;
+}
+
+// Using the mixin
+.container {
+    @include flex-center;
+}
+
+.sidebar {
+    @include flex-center(column, space-between);
+}
+
+// Mixin for media queries
+@mixin responsive($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (max-width: 576px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == tablet {
+        @media (max-width: 992px) {
+            @content;
+        }
+    }
+}
+
+.responsive-element {
+    width: 100%;
+    
+    @include responsive(mobile) {
+        font-size: 14px;
+    }
+}
+                </code></pre>
+            </div>
+
+            <div class="code-example">
+              <h4>2. Inheritance</h4>
+              <pre><code>
+// Base error styles
+%error-base {
+    border: 1px solid red;
+    color: red;
+    padding: 10px;
+}
+
+// Extending base styles
+.form-error {
+    @extend %error-base;
+    background-color: #ffeeee;
+}
+
+.input-error {
+    @extend %error-base;
+    font-weight: bold;
+}
+                </code></pre>
+            </div>
+
+            <div class="code-example">
+              <h4>3. Functions and Operations</h4>
+              <pre><code>
+// Color functions
+$primary: #3498db;
+$secondary: darken($primary, 10%);
+$light-background: lighten($primary, 40%);
+
+// Mathematical operations
+.container {
+    width: 100% - 20px;
+    margin: (10px * 2) auto;
+    padding: 10px + 5px;
+}
+
+// Custom function
+@function calculate-width($columns, $total: 12) {
+    @return percentage($columns / $total);
+}
+
+.sidebar {
+    width: calculate-width(4);
+}
+                </code></pre>
+            </div>
+          </div>
+
+          <div class="slide" id="scss-project-structure">
+            <h2>Recommended Project Structure</h2>
+            <div class="code-example">
+              <pre><code>
+styles/
+│
+├── base/
+│   ├── _reset.scss
+│   ├── _typography.scss
+│   └── _variables.scss
+│
+├── components/
+│   ├── _buttons.scss
+│   ├── _forms.scss
+│   └── _navigation.scss
+│
+├── layout/
+│   ├── _header.scss
+│   ├── _footer.scss
+│   └── _grid.scss
+│
+├── utils/
+│   ├── _mixins.scss
+│   └── _functions.scss
+│
+└── main.scss  # Main file to import all partials
+                </code></pre>
+            </div>
+          </div>
+
+          <div class="slide" id="best-practices">
+            <h2>SCSS Best Practices</h2>
+            <ul>
+              <li>
+                Use partials (files starting with _) for modular organization
+              </li>
+              <li>Limit nesting depth (max 3-4 levels)</li>
+              <li>Use variables for consistent theming</li>
+              <li>Create reusable mixins for common patterns</li>
+              <li>Avoid over-specificity</li>
+              <li>Use meaningful and descriptive variable names</li>
+              <li>Compress CSS for production</li>
+            </ul>
+          </div>
+
+          <div class="slide" id="conclusion">
+            <h2>Why Use SCSS?</h2>
+            <ul>
+              <li>More maintainable and organized stylesheets</li>
+              <li>Powerful features beyond standard CSS</li>
+              <li>Improved code reusability</li>
+              <li>Easier theme and design system creation</li>
+              <li>Better performance through optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" id="preprocessor-comparison">
+        <h2>Preprocessor Comparison</h2>
+
+        <div class="code-example">
+          <h4>Preprocessor Characteristics</h4>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Preprocessor</th>
+                <th>Key Features</th>
+                <th>Use Cases</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sass (SCSS)</td>
+                <td>
+                  - Most feature-rich - Ruby and LibSass implementations -
+                  Widely adopted
+                </td>
+                <td>
+                  - Large-scale projects - Complex design systems - Enterprise
+                  applications
+                </td>
+              </tr>
+              <tr>
+                <td>Less</td>
+                <td>
+                  - JavaScript-based - Simpler syntax - Dynamic style
+                  manipulation
+                </td>
+                <td>
+                  - Smaller projects - Quick prototyping - JavaScript-heavy
+                  environments
+                </td>
+              </tr>
+              <tr>
+                <td>Stylus</td>
+                <td>
+                  - Most flexible syntax - Minimal punctuation - Advanced
+                  functions
+                </td>
+                <td>
+                  - Experimental projects - Developers preferring concise syntax
+                  - Customization-heavy designs
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="slide" id="best-practices">
+        <h2>Best Practices for CSS Frameworks and Preprocessors</h2>
+        <ul>
+          <li>Keep custom styles minimal</li>
+          <li>Use framework's built-in components when possible</li>
+          <li>Organize preprocessor files into modular structure</li>
+          <li>Leverage variables for consistent theming</li>
+          <li>Minimize nesting depth (max 3-4 levels)</li>
+          <li>Use mixins for repeated style patterns</li>
+          <li>Compile and minify preprocessor files for production</li>
+        </ul>
+      </div>
+
+      <div class="slide" id="conclusion">
+        <h2>Conclusion</h2>
+        <p>CSS Frameworks and Preprocessors:</p>
+        <ul>
+          <li>Accelerate development</li>
+          <li>Provide consistent design</li>
+          <li>Offer powerful styling capabilities</li>
+          <li>Enable more maintainable and scalable CSS</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

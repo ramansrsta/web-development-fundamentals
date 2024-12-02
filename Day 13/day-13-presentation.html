@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animations, Transitions, and Accessibility</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <div class="slide">
+      <h1>CSS Animations, Transitions, and Accessibility</h1>
+      <p>
+        Explore the magic of CSS animations and transitions while ensuring
+        accessibility for all users.
+      </p>
+    </div>
+    <div class="slide">
+      <h2>What Are CSS Animations?</h2>
+      <p>
+        CSS animations allow elements to transition between states using
+        keyframes.
+      </p>
+      <div class="code-example">
+        <pre><code>
+.animate-example {
+    animation: move 2s infinite;
+}
+
+@keyframes move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(100px); }
+    100% { transform: translateX(0); }
+}
+            </code></pre>
+      </div>
+    </div>
+    <div class="slide">
+      <h2>CSS Animation Syntax</h2>
+      <p>
+        Animations use keyframes to define transitions at specific percentages.
+      </p>
+      <div class="code-example">
+        <pre><code>
+@keyframes example {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+.animated-element {
+    animation: example 3s ease-in-out infinite;
+}
+            </code></pre>
+      </div>
+    </div>
+    <div class="slide">
+      <h2>What Are CSS Transitions?</h2>
+      <p>Transitions allow smooth changes between property values over time.</p>
+      <div class="code-example">
+        <pre><code>
+.transition-example {
+    transition: all 0.3s ease;
+    background-color: blue;
+    color: white;
+}
+
+.transition-example:hover {
+    background-color: red;
+    color: black;
+}
+            </code></pre>
+      </div>
+    </div>
+    <div class="slide">
+      <h2>Transition Syntax</h2>
+      <p>Define property, duration, timing-function, and delay.</p>
+      <div class="code-example">
+        <pre><code>
+.button {
+    transition: background-color 0.4s ease-in-out, color 0.4s ease;
+}
+            </code></pre>
+      </div>
+    </div>
+    <div class="slide">
+      <h2>CSS Transition Timing Functions</h2>
+      <p>Timing functions control the pace of the transition.</p>
+      <div class="code-example">
+        <pre><code>
+.box {
+    transition: transform 2s ease-in-out;
+}
+            </code></pre>
+      </div>
+    </div>
+  </body>
+</html>
