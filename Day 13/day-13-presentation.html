@@ -5,93 +5,693 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS Animations, Transitions, and Accessibility</title>
     <link rel="stylesheet" href="../styles/styles.css" />
+    <style>
+      .title {
+        animation: fade-in 5s ease-in;
+      }
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="slide">
-      <h1>CSS Animations, Transitions, and Accessibility</h1>
+      <h1 class="title">CSS Animations, Transitions and Accessibility</h1>
+      <b class="title">
+        Create Visually Appealing and Accessible User Experience
+      </b>
+    </div>
+
+    <div class="slide">
+      <h2>Introduction</h2>
       <p>
-        Explore the magic of CSS animations and transitions while ensuring
-        accessibility for all users.
+        Animations are a way to add movement and style to your website. They can
+        be used to make your website more interactive and engaging. Use keyframes to control intermediate states.
+      </p>
+      <p>
+        Transitions are a way to change property values smoothly over a given
+        duration. They can be used to create simple animations like hover. Simplify changes between two states.
+      </p>
+      <p>
+        Accessibility is the practice of making your website usable by as many
+        people as possible.
+      </p>
+      <p>Where to Use?
+        <ul>
+          <li>Hover effects</li>
+          <li>Menu animations</li>
+          <li>Page transitions</li>
+          <li>Form validation</li>
+          <li>And more...</li>
+        </ul>
       </p>
     </div>
+
     <div class="slide">
-      <h2>What Are CSS Animations?</h2>
+      <h2>Animations</h2>
       <p>
-        CSS animations allow elements to transition between states using
-        keyframes.
+        Animations are a way to add movement and style to your website. They can
+        be used to make your website more interactive and engaging.
+      </p>
+      <p>
+        Use keyframes to control intermediate states. Keyframes are used to
+        specify the values for the animating properties at various points during
+        the animation.
+      </p>
+      <div>
+        How it works ? 
+        <ul>
+          <li>@keyframes defines animation steps.</li>
+          <li>animation applies them to elements.</li>
+        </ul>
+      </div>
+      
+      <div class="code-example">
+        <div class="box"></div>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                animation: bounce 2s infinite;
+            }
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-50px); }
+            }
+        </style>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Syntax of Animations</h2>
+      <p>
+        The animation property is a shorthand property for the following
+        animation properties: 
+        <i>animation: name duration timing-function delay iteration-count direction fill-mode;</i>
+      </p>
+      <ul>
+        <li>name: Name of the @keyframes.</li>
+        <li> duration: Time taken for one cycle.</li>
+        <li>timing-function: Controls pacing (ease, linear).</li>
+        <li>delay: Wait time before starting.</li>
+        <li>iteration-count: Repeats (e.g., infinite).</li>
+        <li>direction: Reverse or alternate playback.</li>
+        <li>fill-mode: Controls end-state appearance.</li>
+      </ul>
+      <div class="code-example">
+        <!-- animation Syntax -->
+        <div class="example-box"></div>
+        <style>
+          .example-box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation: example-animation 3s ease-in-out 1s infinite alternate forwards;
+          }
+          @keyframes example-animation {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(100px); }
+            100% { transform: translateX(0); }
+          }
+        </style>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Transition Basics</h2>
+      <p> 
+        <b>Why use it:</b>  Adds polish to state changes (hover, focus, etc.).
+      </p>
+      <p> 
+        <b>How Does It Work:</b> Transition monitors changes and smoothly adjusts properties.
       </p>
       <div class="code-example">
-        <pre><code>
-.animate-example {
-    animation: move 2s infinite;
-}
-
-@keyframes move {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(100px); }
-    100% { transform: translateX(0); }
-}
-            </code></pre>
+        <button class="btn">Hover Me</button>
+        <style>
+            .btn {
+                padding: 10px 20px;
+                background-color: lightblue;
+                transition: background-color 2s ease;
+            }
+            .btn:hover {
+                background-color: darkblue;
+                color: white;
+                cursor: pointer;
+            }
+        </style>
       </div>
     </div>
+
     <div class="slide">
-      <h2>CSS Animation Syntax</h2>
+      <h2>Common Transition Functions</h2>
+      <div class="slide">
+        <h2>rotate()</h2>
+        <p>Rotates an element around its origin (center by default).</p>
+        <p>Syntax: transform: rotate(angle);
+          <ul>
+            <li>angle can be in degrees (deg), radians (rad), or turns (turn).</li>
+            <li>Example values: rotate(45deg), rotate(1rad), rotate(0.25turn).</li>
+          </ul>
+        </p>
+        <p>Use Cases: Spinning animations (e.g., loading icons) or tilted designs.</p>
+        <div class="code-example">
+          <div class="rotate-example">Rotate Me!</div>
+            <style>
+              .rotate-example {
+                  width: 100px;
+                  height: 100px;
+                  background-color: lightblue;
+                  transform: rotate(45deg);
+              }
+            </style>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>scale()</h2>
+        <p>Scales an element along the X and/or Y axes.</p>
+        <p>Syntax: transform: scale(sx, sy);
+          <ul>
+            <li>sx: Scale factor along the X-axis.</li>
+            <li>sy: Scale factor along the Y-axis (optional; defaults to sx).</li>
+            <li>Use scaleX() or scaleY() for single-axis scaling.</li>
+          </ul>
+        </p>
+        <p>Use case: Zoom-in effects, enlarging images, hover effects.
+        </p>
+        <div class="code-example">
+          <div class="scale-example">Scale Me!</div>
+            <style>
+              .scale-example {
+                  width: 100px;
+                  height: 100px;
+                  background-color: coral;
+                  transform: scale(1.5, 1.2); /* Enlarges width by 1.5x and height by 1.2x */
+              }
+            </style>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>translate()</h2>
+        <p>Moves an element along the X and/or Y axes</p>
+        <p>Syntax: transform: translate(tx, ty);
+          <ul>
+            <li>tx: Translation distance along the X-axis.</li>
+            <li>ty: Translation distance along the Y-axis.</li>
+            <li>Use translateX() or translateY() for single-axis movement.</li>
+          </ul>
+        </p>
+        <p>Use case: Sliding animations, repositioning elements</p>
+        <div class="code-example">
+          <div class="translate-example">Move Me!</div>
+          <style>
+            .translate-example {
+                width: 100px;
+                height: 100px;
+                background-color: lightgreen;
+                transform: translate(50px, 20px); /* Moves 50px right and 20px down */
+            }
+          </style>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>skew()</h2>
+        <p>Skews an element along the X and/or Y axes.</p>
+        <p>Syntax: transform: skew(ax, ay);
+          <ul>
+            <li>ax: Skew angle along the X-axis.</li>
+            <li>ay: Skew angle along the Y-axis (optional; defaults to 0).</li>
+            <li>Use skewX() or skewY() for single-axis skewing.</li>
+          </ul>
+        </p>
+        <p>Use case: Artistic designs, dynamic text effects.</p>
+        <div class="code-example">
+          <div class="skew-example">Skew Me!</div>
+          <style>
+            .skew-example {
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+                transform: skew(20deg, 10deg); /* Skews 20 degrees on X-axis and 10 degrees on Y-axis */
+            }
+          </style>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>Transform origin</h2>
+        <p>Sets the pivot point for transformations.</p>
+        <p>Syntax: transform-origin: x y;
+          <ul>
+            <li>x and y can be keywords (center, top, left, etc.) or percentages.</li>
+          </ul>
+        </p>
+        <div class="code-example">
+          <div class="origin-example">Origin Me!</div>
+          <style>
+            .origin-example {
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+                transform-origin: top left;
+                transform: rotate(45deg);
+            }
+          </style>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>3D Transforms</h2>
+        <p>Adds depth by manipulating the Z-axis.</p>
+        <p>Syntax:
+          <ul>
+            <li>rotateX(angle) and rotateY(angle): Rotates around the X or Y axes.</li>
+            <li>perspective(value): Adds depth perspective.</li>
+          </ul>
+        </p>
+        <div class="code-example">
+          <div class="rotate3d-example">3D Rotate</div>
+          <style>
+            .rotate3d-example {
+                width: 100px;
+                height: 100px;
+                background-color: teal;
+                transform: perspective(1000px) rotateY(45deg);
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Differences Between Animations and Transitions</h2>
       <p>
-        Animations use keyframes to define transitions at specific percentages.
+        <b>Animations:</b> 
+        <ul>
+          <li>Use keyframes to control intermediate states.</li>
+          <li>complex sequences or repeated effects.</li>
+          <li>Can be paused, reversed, or played at different speeds.</li>
+        </ul>
       </p>
-      <div class="code-example">
-        <pre><code>
-@keyframes example {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.5); }
-    100% { transform: scale(1); }
-}
+      <p>
+        <b>Transitions:</b> 
+        <ul>
+          <li>Simple property changes.</li>
+          <li>Single property changes.</li>
+          <li>Can be used for hover effects.</li>
+        </ul>
+      </p>
 
-.animated-element {
-    animation: example 3s ease-in-out infinite;
-}
-            </code></pre>
+      <div class="code-example">
+        <div class="ball"></div>
+        <style>
+            .ball {
+                width: 50px;
+                height: 50px;
+                background: red;
+                animation: move 2s infinite;
+                transition: background 0.5s;
+            }
+            .ball:hover {
+                background: blue;
+            }
+            @keyframes move {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(200px); }
+            }
+        </style>
       </div>
     </div>
-    <div class="slide">
-      <h2>What Are CSS Transitions?</h2>
-      <p>Transitions allow smooth changes between property values over time.</p>
-      <div class="code-example">
-        <pre><code>
-.transition-example {
-    transition: all 0.3s ease;
-    background-color: blue;
-    color: white;
-}
 
-.transition-example:hover {
-    background-color: red;
-    color: black;
-}
-            </code></pre>
+    <div class="slide">
+      <h2>Common Timing Functions</h2>
+       <p>
+        <b>Linear</b>
+        <ul>
+          <li>Represents constant speed throughout the animation</li>
+          <li>No acceleration or deceleration</li>
+          <li>Movement is uniform and mechanical</li>
+          <li>Best used for: Simple, predictable movements</li>
+          <li>Visual representation: A straight diagonal line</li>
+        </ul>
+       </p>
+
+       <p>
+        <b>Ease</b>
+        <ul>
+          <li>Most balanced and commonly used timing function</li>
+          <li>Starts slow, speeds up in the middle, and slows down at the end</li>
+          <li>Creates a natural, smooth motion</li>
+          <li>Mimics real-world physics where objects don't start or stop instantly</li>
+          <li>Best used for: General-purpose animations, making transitions feel organic</li>
+        </ul>
+       </p>
+
+       <p>
+        <b>Ease-in</b>
+        <ul>
+          <li>Starts slowly and gradually accelerates</li>
+          <li>Initial movement is very gentle</li>
+          <li>Picks up speed towards the end of the animation</li>
+          <li>Best used for: Animations where you want a subtle, gradual start</li>
+          <li>Think of: An object slowly gaining momentum</li>
+        </ul>
+       </p>
+
+       <p>
+        <b>Ease-out</b>
+        <ul>
+          <li>Starts quickly and then decelerates</li>
+          <li>Begins with rapid movement</li>
+          <li>Slows down smoothly towards the end</li>
+          <li>Best used for: Dropping or dismissing elements</li>
+          <li>Think of: An object quickly approaching its final position and then gently settling</li>
+        </ul>
+       </p>
+
+       <p>
+        <b>Ease-in-out</b>
+        <ul>
+          <li>Combines ease-in and ease-out</li>
+          <li>Starts slowly, accelerates in the middle, and then decelerates</li>
+          <li>Most complex and natural-feeling timing function</li>
+          <li>Best used for: Complex, multi-stage animations</li>
+          <li>Creates the most fluid and sophisticated motion</li>
+        </ul>
+       </p>
+
+       <p>
+        <b>Cubic Bezier</b>
+        <ul>
+          <li>Advanced, fully customizable timing function</li>
+          <li>Defined by four control points</li>
+          <li>Allows precise control over animation's acceleration and deceleration</li>
+          <li>Syntax: cubic-bezier(x1, y1, x2, y2)</li>
+          <li>Example: cubic-bezier(0.25, 0.1, 0.25, 1) is similar to the standard ease</li>
+        </ul>
+       </p>
+      <div class="code-example">
+        <div class="box"></div>
+        <style>
+            .element {
+              transition: transform 0.5s linear;          /* Constant speed */
+              transition: transform 0.5s ease;             /* Smooth acceleration/deceleration */
+              transition: transform 0.5s ease-in;          /* Slow start */
+              transition: transform 0.5s ease-out;         /* Slow end */
+              transition: transform 0.5s ease-in-out;      /* Complex motion */
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                background: coral;
+                animation: scale 2s ease-in-out infinite;
+                transition: background 1s;
+            }
+            .box:hover {
+                background: darkblue;
+            }
+            @keyframes scale {
+                0% { transform: scale(1); }
+                100% { transform: scale(1.5); }
+            }
+        </style>
       </div>
     </div>
-    <div class="slide">
-      <h2>Transition Syntax</h2>
-      <p>Define property, duration, timing-function, and delay.</p>
-      <div class="code-example">
-        <pre><code>
-.button {
-    transition: background-color 0.4s ease-in-out, color 0.4s ease;
-}
-            </code></pre>
+
+    <div class="side">
+      <h2>Accessibility</h2>
+      <div>
+        <b>Why Digital Accessibility ?</b>
+        <ul>
+          <li>Designing for All Users</li>
+          <li>Removing Barriers</li>
+        </ul>
+      </div>
+      <div>
+        <b>Key Accessibility Principles</b>
+        <ul>
+          <li>Perceivable</li>
+          <li>Operable</li>
+          <li>Understandable</li>
+          <li>Robust</li>
+        </ul>
+      </div>
+
+      <div>
+        <b>Impact on Different User Groups</b>
+        <ul>
+          <li>Users with Visual Impairments</li>
+          <li>Cognitive Disabilities</li>
+          <li>Motor Impairments</li>
+          <li>Neurological Conditions</li>
+        </ul>
       </div>
     </div>
+
     <div class="slide">
-      <h2>CSS Transition Timing Functions</h2>
-      <p>Timing functions control the pace of the transition.</p>
-      <div class="code-example">
-        <pre><code>
-.box {
-    transition: transform 2s ease-in-out;
-}
-            </code></pre>
+      <h2>How to Make Accessible</h2>
+       <ul>
+        <li>Keyboard navigation: Focus states.</li>
+        <li>ARIA attributes: Add semantic meaning.</li>
+       </ul>
+
+       <div class="slide">
+        <h2>ARIA for Interactive Elements</h2>
+        <div>
+          <b>Buttons</b>
+          <ul>
+            <li>
+              <button aria-label="Submit form">Submit</button>
+              <br>
+              <i>Use case: Provide a descriptive label for screen readers.</i>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <b>Links</b>
+          <ul>
+            <li>
+              <a href="#section2" aria-label="Skip to Section 2">Skip</a>
+              <br>
+              <i>Use case: Helps users understand the purpose of the link.</i>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <b>Forms</b>
+          <ul>
+            <li>
+              <label for="email">Email</label>
+              <input id="email" type="email" aria-required="true">
+              <br>
+              <i>Why it works: aria-required indicates mandatory fields.</i>
+            </li>
+          </ul>
+        </div>
       </div>
+      
+      <div class="slide">
+        <h2>ARIA for Alerts and Notifications</h2>
+        <div>
+          <b>Role: alert</b>
+          <ul>
+            <li>
+              <div role="alert">Your settings have been saved successfully!</div>
+              <br>
+              <i>Use case: Announces the message immediately to screen readers.</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <h2>ARIA for Menus</h2>
+        <div>
+          <b>Role: menu and menuitem</b>
+          <ul>
+            <li>
+              <ul role="menu">
+                <li role="menuitem">Home</li>
+                <li role="menuitem">About</li>
+              </ul>
+              <br>
+              <i>Why it works: Defines a navigational structure for assistive tech.</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <h2>ARIA for Progress Indicators</h2>
+        <div>
+          <b>Role: progressbar</b>
+          <ul>
+            <li>
+              <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                70% Complete
+              </div>
+              <br>
+              <i>Why it works: Announces progress updates dynamically.</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <h2>ARIA for Modals</h2>
+        <div>
+          <b>Attributes</b>
+          <ul>
+            <li>
+              <div role="dialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
+                <h2 id="modal-title">Confirm Action</h2>
+                <p id="modal-desc">Are you sure you want to proceed?</p>
+              </div>
+              <br>
+              <i>role="dialog": Identifies the modal.</i><br>
+              <i>aria-labelledby: Links to the modal’s title.</i><br>
+              <i>aria-describedby: Links to content explaining the modal.</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>Accessible Animations</h2>
+        <div>
+          <b>Key Principles</b>
+          <ul>
+            <li>Avoid triggering vestibular disorders:
+              <ul>
+                <li>Use <code>@media (prefers-reduced-motion)</code> to respect user preferences.</li>
+              </ul>
+            </li>
+            <li>Provide context:
+              <ul>
+                <li>Ensure animations communicate purpose without relying solely on visuals.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      
+        <div>
+          <b>Examples of Accessible Animations</b>
+          <ul>
+            <li>
+              <b>Example 1: Reduced Motion for Scroll Effects</b>
+              <pre><code>@media (prefers-reduced-motion: reduce) {
+          .scroll-effect {
+              animation: none;
+          }
+      }</code></pre>
+              <i>Why it works: Stops motion-heavy effects for users with motion sensitivities.</i>
+            </li>
+            <li>
+              <b>Example 2: Subtle Animations for Feedback</b>
+              <pre><code>.button {
+          transition: background-color 0.3s ease;
+      }
+      .button:hover {
+          background-color: darkblue;
+      }</code></pre>
+              <i>Why it works: Adds interactivity without overwhelming the user.</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Animation Best Practices for Accessibility</h2>
+      <div>
+        <b>Do:</b>
+        <ul>
+          <li>Use animations for feedback and focus indicators.</li>
+          <li>Respect user preferences for reduced motion.</li>
+          <li>Ensure animations communicate purpose.</li>
+        </ul>
+      </div>
+      <div>
+        <b>Don't:</b>
+        <ul>
+          <li>Use excessive animations that distract.</li>
+          <li>Rely on animations as the sole communication mechanism.</li>
+          <li>Use flashing or fast animations (can trigger seizures).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Emerging Technologies</h2>
+        <ul>
+          <li>AI-Driven Adaptive Animations</li>
+          <li>Personalized Motion Designs</li>
+          <li>Responsive Micro-interactions</li>
+          <li>Context-Aware Animations</li>
+          <li>Virtual and Augmented Reality Considerations</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+      <h2>Testing And Validation</h2>
+      <div>
+        <b>Accessibility Testing Tools</b>
+        <ul>
+          <li>WAVE</li>
+          <li>aXe</li>
+          <li>Lighthouse</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Legal and Ethical Considerations</h2>
+      <div>
+          <ul>
+            <li>Web Content Accessibility Guidelines (WCAG)</li>
+          </ul>
+          <b>Legal Requirements</b>
+          <ul>
+            <li>ADA Compliance</li>
+            <li>Section 508</li>
+            <li>European Accessibility Act</li>
+          </ul>
+        <b>Ethical Design Responsibilities</b>
+        <ul>
+          <li>Inclusive Design Philosophy</li>
+          <li>Social Impact of Accessible Interfaces</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Learning Resources</h2>
+      <b>A11Y Project</b>
+      <p>
+        Website: <a href="https://www.a11yproject.com/">https://www.a11yproject.com/</a><br>
+        Community-driven accessibility resource
+      </p>
+
+      <b>WebAIM</b>
+      <p>
+        Website: <a href="https://webaim.org/">https://webaim.org/</a><br>
+        Comprehensive web accessibility information
+      </p>
+
+      <b>Inclusive Design Toolkit</b>
+      <p>
+        Website: <a href="https://www.microsoft.com/design/inclusive">https://www.microsoft.com/design/inclusive</a><br>
+        Microsoft's guidelines for inclusive design
+      </p>
     </div>
   </body>
 </html>
