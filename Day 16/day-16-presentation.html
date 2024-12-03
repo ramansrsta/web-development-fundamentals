@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Presentation</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <div class="slide">
+      <h2>ES6+ Introduction</h2>
+      <p>
+        ES6 (ECMAScript 2015) introduced modern features for cleaner, faster,
+        and more efficient JavaScript development.
+      </p>
+      <ul>
+        <li>Template Literals</li>
+        <li>Arrow Functions</li>
+        <li>Destructuring</li>
+      </ul>
+      <div class="code-example">
+        <code>
+          {`// Template Literals Example let name = "John"; console.log(\`Hello,
+          \${name}!\`); // Output: Hello, John `}
+        </code>
+      </div>
+    </div>
+    <div class="slide">
+      <h2>Destructuring</h2>
+      <p>
+        Destructuring allows unpacking values from arrays or properties from
+        objects into distinct variables.
+      </p>
+      <div class="code-example">
+        <code>
+          {`// Destructuring Arrays const arr = [1, 2, 3]; const [first, second]
+          = arr; console.log(first, second); // Output: 1 2 // Destructuring
+          Objects const person = { name: "Alice", age: 30 }; const { name, age }
+          = person; console.log(name, age); // Output: Alice 30 `}
+        </code>
+      </div>
+    </div>
+    <div class="slide">
+      <h2>Spread and Rest Operators</h2>
+      <p>
+        The spread operator (...) expands elements, while the rest operator
+        collects arguments into an array.
+      </p>
+      <div class="code-example">
+        <code>
+          {`// Spread Example const arr1 = [1, 2]; const arr2 = [...arr1, 3, 4];
+          console.log(arr2); // Output: [1, 2, 3, 4] // Rest Example function
+          sum(...nums) { return nums.reduce((total, n) => total + n, 0); }
+          console.log(sum(1, 2, 3)); // Output: 6 `}
+        </code>
+      </div>
+    </div>
+    <div class="slide">
+      <h2>Promises</h2>
+      <p>Promises help manage asynchronous operations effectively.</p>
+      <div class="code-example">
+        <code>
+          {`// Promise Example const fetchData = () => new Promise((resolve,
+          reject) => { setTimeout(() => resolve("Data fetched"), 1000); });
+          fetchData().then(data => console.log(data)); // Output after 1s: Data
+          fetched `}
+        </code>
+      </div>
+    </div>
+    <div class="slide">
+      <h2>Async/Await</h2>
+      <p>Async/Await simplifies working with Promises for asynchronous code.</p>
+      <div class="code-example">
+        <code>
+          {`// Async/Await Example const fetchData = async () => { const data =
+          await new Promise(resolve => setTimeout(() => resolve("Data fetched"),
+          1000)); console.log(data); }; fetchData(); // Output after 1s: Data
+          fetched `}
+        </code>
+      </div>
+    </div>
+  </body>
+</html>
