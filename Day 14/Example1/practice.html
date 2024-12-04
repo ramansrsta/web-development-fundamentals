@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Accessibility Document" />
+    <title>Accessibility Document</title>
+  </head>
+  <body>
+    <header>
+      <h1 aria-describedby="header" aria-level="1">Accessible Header</h1>
+    </header>
+    <main>
+      <section>
+        <h2 aria-describedby="section" aria-level="2">Accessible Section</h2>
+        <p
+          aria-describedby="description-of-section"
+          aria-level="2"
+          aria-roledescription="paragraph"
+        >
+          This is an accessible section.
+        </p>
+      </section>
+
+      <form>
+        <fieldset>
+          <legend aria-describedby="form" aria-level="2">
+            Accessible Form
+          </legend>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" />
+          <button type="submit" aria-roledescription="Submit Button">
+            Submit
+          </button>
+        </fieldset>
+      </form>
+    </main>
+    <footer>
+      <h3 aria-describedby="footer" aria-level="3">Accessible Footer</h3>
+    </footer>
+  </body>
+</html>
