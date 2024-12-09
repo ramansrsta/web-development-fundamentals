@@ -8,75 +8,286 @@
   </head>
   <body>
     <div class="slide">
-      <h2>ES6+ Introduction</h2>
+      <h1>Javascript Introduction</h1>
       <p>
-        ES6 (ECMAScript 2015) introduced modern features for cleaner, faster,
-        and more efficient JavaScript development.
+        JavaScript is a high-level, interpreted programming language that
+        conforms to the ECMAScript specification. It is a language that is also
+        characterized as dynamic, weakly typed, prototype-based, and
+        multi-paradigm.
       </p>
       <ul>
-        <li>Template Literals</li>
-        <li>Arrow Functions</li>
-        <li>Destructuring</li>
+        <li>JavaScript is a dynamic, high-level, interpreted language.</li>
+        <li>It enables web pages to be interactive and responsive.</li>
+        <li>
+          Used in Client Side, Server Side, Mobile and Desktop Applications
+        </li>
       </ul>
       <div class="code-example">
         <code>
-          {`// Template Literals Example let name = "John"; console.log(\`Hello,
-          \${name}!\`); // Output: Hello, John `}
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <title>JS Example</title>
+            </head>
+            <body>
+              <h3 id="welcome">Welcome to JavaScript</h3>
+              <script>
+                document.getElementById("welcome").style.color = "red";
+              </script>
+            </body>
+          </html>
         </code>
       </div>
     </div>
+
     <div class="slide">
-      <h2>Destructuring</h2>
-      <p>
-        Destructuring allows unpacking values from arrays or properties from
-        objects into distinct variables.
-      </p>
+      <h2>Setting Up JavaScript</h2>
+      <ul>
+        <li>Inline: &lt;script&gt; inside HTML.</li>
+        <li>External JS file: &lt;script src="app.js"&gt;&lt;/script&gt;.</li>
+        <li>Using the console: Built into most browsers.</li>
+      </ul>
       <div class="code-example">
-        <code>
-          {`// Destructuring Arrays const arr = [1, 2, 3]; const [first, second]
-          = arr; console.log(first, second); // Output: 1 2 // Destructuring
-          Objects const person = { name: "Alice", age: 30 }; const { name, age }
-          = person; console.log(name, age); // Output: Alice 30 `}
-        </code>
+        Inline JS: &lt;script&gt; alert("Hello from Inline JS!");
+        &lt;/script&gt;
+      </div>
+
+      <div class="code-example">
+        External JS: &lt;script src="app.js"&gt;&lt;/script&gt;
       </div>
     </div>
+
     <div class="slide">
-      <h2>Spread and Rest Operators</h2>
-      <p>
-        The spread operator (...) expands elements, while the rest operator
-        collects arguments into an array.
-      </p>
+      <h2>Basic Syntax</h2>
+      <ul>
+        <li>Case Sensitive: variable ≠ Variable.</li>
+        <li>Semicolons: Optional but recommended.</li>
+        <li>Comments:</li>
+        <ul>
+          <li>Single-line: <code>// comment</code></li>
+          <li>Multi-line: <code>/* comment */</code></li>
+        </ul>
+      </ul>
+
       <div class="code-example">
-        <code>
-          {`// Spread Example const arr1 = [1, 2]; const arr2 = [...arr1, 3, 4];
-          console.log(arr2); // Output: [1, 2, 3, 4] // Rest Example function
-          sum(...nums) { return nums.reduce((total, n) => total + n, 0); }
-          console.log(sum(1, 2, 3)); // Output: 6 `}
-        </code>
+        // This is a single-line comment let greeting = "Hello, World!"; //
+        Variable declaration /* Multi-line comments Example of a block comment
+        */ console.log(greeting);
       </div>
     </div>
+
     <div class="slide">
-      <h2>Promises</h2>
-      <p>Promises help manage asynchronous operations effectively.</p>
+      <h2>Vairables</h2>
+      <ul>
+        <li><b>var:</b> Function-scoped, older standard.</li>
+        <li><b>let:</b> Block-scoped, modern standard.</li>
+        <li><b>const:</b> Block-scoped, cannot be reassigned.</li>
+      </ul>
       <div class="code-example">
-        <code>
-          {`// Promise Example const fetchData = () => new Promise((resolve,
-          reject) => { setTimeout(() => resolve("Data fetched"), 1000); });
-          fetchData().then(data => console.log(data)); // Output after 1s: Data
-          fetched `}
-        </code>
+        var globalVar = "I am var"; let blockVar = "I am let"; const constVar =
+        "I am constant"; console.log(globalVar, blockVar, constVar);
       </div>
     </div>
+
     <div class="slide">
-      <h2>Async/Await</h2>
-      <p>Async/Await simplifies working with Promises for asynchronous code.</p>
+      <h2>Variables Scope</h2>
+      <ul>
+        <li><b>Global Scope:</b> Accessible everywhere.</li>
+        <li><b>Function Scope:</b> Inside functions only.</li>
+        <li><b>Block Scope:</b> Defined by {} with let and const.</li>
+      </ul>
       <div class="code-example">
-        <code>
-          {`// Async/Await Example const fetchData = async () => { const data =
-          await new Promise(resolve => setTimeout(() => resolve("Data fetched"),
-          1000)); console.log(data); }; fetchData(); // Output after 1s: Data
-          fetched `}
-        </code>
+        let globalVar = "Global"; function scopeExample() { let localVar =
+        "Local"; console.log(globalVar); // Accessible console.log(localVar); //
+        Accessible } scopeExample(); console.log(localVar); // Error
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Data Types</h2>
+      <ul>
+        <li><b>Primitive Types:</b></li>
+        <ul>
+          <li>string</li>
+          <li>number</li>
+          <li>boolean</li>
+          <li>null</li>
+          <li>undefined</li>
+          <li>symbol</li>
+        </ul>
+        <li><b>Non-Primitive:</b></li>
+        <ul>
+          <li>Objects</li>
+          <li>arrays</li>
+          <li>functions</li>
+        </ul>
+      </ul>
+      <div class="code-example">
+        // Primitives let str = "Hello"; let num = 42; let bool = true; let
+        empty = null; let undef; // Non-primitives let obj = { name: "John" };
+        let arr = [1, 2, 3];
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Strings and Numbers</h2>
+      <ul>
+        <li><b>String methods:</b></li>
+        <ul>
+          <li>length</li>
+          <li>toUpperCase()</li>
+          <li>slice()</li>
+        </ul>
+        <li><b>Number operations:</b></li>
+        <ul>
+          <li>Arithmetic (+, -, *, /)</li>
+        </ul>
+      </ul>
+      <div class="code-example">
+        let name = "John Doe"; console.log(name.toUpperCase()); // "JOHN DOE"
+        console.log(name.slice(0, 4)); // "John" let num = 5 + 3 * 2;
+        console.log(num); // 11
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Booleans and Comparison</h2>
+      <ul>
+        <li><b>Boolean:</b> true or false.</li>
+        <li><b>Comparison Operators:</b></li>
+        <ul>
+          <li>== (loose equality)</li>
+          <li>=== (strict equality)</li>
+          <li>!= (not equal)</li>
+          <li>!== (strict not equal)</li>
+          <li>&gt; (greater than)</li>
+          <li>&lt; (less than)</li>
+          <li>&gt;= (greater than or equal)</li>
+          <li>&lt;= (less than or equal)</li>
+        </ul>
+      </ul>
+      <div class="code-example">
+        let isTrue = true; let isEqual = 5 == "5"; console.log(isEqual); // true
+        let isStrictEqual = 5 === "5"; console.log(isStrictEqual); // false
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Null and Undefined</h2>
+      <ul>
+        <li><b>null:</b> Represents an intentional absence of value.</li>
+        <li><b>undefined:</b> Represents an uninitialized variable.</li>
+      </ul>
+      <div class="code-example">
+        let empty = null; let undef; console.log(empty); // null
+        console.log(undef); // undefined
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Objects and Arrays</h2>
+      <ul>
+        <li><b>Objects:</b> Key-value pairs.</li>
+        <li><b>Arrays:</b> Ordered lists of values.</li>
+      </ul>
+      <div class="code-example">
+        let person = { name: "John", age: 30 }; let fruits = ["apple", "banana",
+        "orange"]; console.log(person.name); // "John" console.log(fruits[1]);
+        // "banana" // Adding a new key-value pair person.job = "Developer";
+        console.log(person.job); // "Developer" // Adding a new item to the
+        array fruits.push("grapes"); console.log(fruits); // ["apple", "banana",
+        "orange", "grapes"]
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Operators</h2>
+      <ul>
+        <li><b>Arithmetic Operators:</b></li>
+        <ul>
+          <li>+</li>
+          <li>-</li>
+          <li>*</li>
+          <li>/</li>
+          <li>%</li>
+          <li>++</li>
+          <li>--</li>
+        </ul>
+        <li><b>Assignment Operators:</b></li>
+        <ul>
+          <li>=</li>
+          <li>+=</li>
+          <li>-=</li>
+          <li>*=</li>
+          <li>/=</li>
+          <li>%=</li>
+        </ul>
+        <li><b>Logical Operators:</b></li>
+        <ul>
+          <li>&& (AND)</li>
+          <li>|| (OR)</li>
+          <li>! (NOT)</li>
+        </ul>
+      </ul>
+      <div class="code-example">
+        let num = 5; num++; console.log(num); // 6 num += 2; console.log(num);
+        // 8 let isTrue = true; let isFalse = !isTrue; console.log(isFalse); //
+        false
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Control Flow</h2>
+      <ul>
+        <li><b>Conditional Statements:</b></li>
+        <ul>
+          <li>if</li>
+          <li>else</li>
+          <li>else if</li>
+          <li>Ternary: condition ? trueValue : falseValue.</li>
+        </ul>
+        <li><b>Switch Statement:</b></li>
+      </ul>
+      <div class="code-example">
+        let num = 5; if (num > 0) { console.log("Positive"); } else if (num < 0)
+        { console.log("Negative"); } else { console.log("Zero"); } let result =
+        num > 0 ? "Positive" : "Negative"; console.log(result);
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Loops</h2>
+      <ul>
+        <li><b>For Loop:</b></li>
+        <li><b>While Loop:</b></li>
+        <li><b>Do-While Loop:</b></li>
+        <li><b>For-In Loop:</b></li>
+        <li><b>For-Of Loop:</b></li>
+      </ul>
+      <div class="code-example">
+        for (let i = 0; i < 5; i++) { console.log(i); } let i = 0; while (i < 5)
+        { console.log(i); i++; } let j = 0; do { console.log(j); j++; } while (j
+        < 5); let fruits = ["apple", "banana", "orange"]; for (let fruit in
+        fruits) { console.log(fruit); } for (let fruit of fruits) {
+        console.log(fruit); }
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2>Functions</h2>
+      <ul>
+        <li><b>Function Declaration:</b></li>
+        <li><b>Function Expression:</b></li>
+        <li><b>Arrow Function:</b></li>
+        <li><b>Parameters and Arguments:</b></li>
+        <li><b>Return Statement:</b></li>
+      </ul>
+      <div class="code-example">
+        function greet() { console.log("Hello"); } greet(); let greet =
+        function() { console.log("Hello"); }; greet(); let greet = () => {
+        console.log("Hello"); }; greet(); function greet(name) {
+        console.log(`Hello, ${name}`); } greet("John"); function add(a, b) {
+        return a + b; } let sum = add(5, 3); console.log(sum); // 8
       </div>
     </div>
   </body>
