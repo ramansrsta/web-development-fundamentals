@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Events and Event Listeners</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <h1>JavaScript Events and Event Listeners</h1>
+
+    <p>
+      JavaScript events are actions or occurrences that happen in the browser,
+      such as user interactions (e.g., clicking a button) or browser-generated
+      events (e.g., page loading).
+    </p>
+
+    <h2>What are Events?</h2>
+    <p>
+      Events are signals sent to notify the code of something that has happened.
+      Examples of events include:
+    </p>
+    <ul>
+      <li>Clicking a button (<code>click</code>)</li>
+      <li>Hovering over an element (<code>mouseover</code>)</li>
+      <li>Typing into an input field (<code>input</code>)</li>
+      <li>Submitting a form (<code>submit</code>)</li>
+      <li>Loading a webpage (<code>load</code>)</li>
+    </ul>
+
+    <h2>What are Event Listeners?</h2>
+    <p>
+      An event listener is a function that waits for a specific event to occur
+      and executes code when that event is triggered. You can attach event
+      listeners to HTML elements using JavaScript.
+    </p>
+    <p>
+      Event listeners follow a specific sequence: the event is triggered, the
+      browser looks for any associated listeners, and the callback function is
+      executed in the context of the event target.
+    </p>
+
+    <h2>How Events Work: Event Propagation</h2>
+    <p>When an event occurs in the DOM, it can propagate in two ways:</p>
+    <ol>
+      <li>
+        <strong>Capturing Phase:</strong> The event moves from the root to the
+        target element.
+      </li>
+      <li>
+        <strong>Bubbling Phase:</strong> The event moves from the target element
+        back up to the root.
+      </li>
+    </ol>
+    <p>
+      You can control the propagation phase using the third argument of
+      <code>addEventListener()</code>. For example:
+    </p>
+    <pre>
+        <code>
+document.getElementById('myElement').addEventListener('click', function() {
+    console.log('Event triggered!');
+}, true); // true for capturing phase, false for bubbling phase
+        </code>
+    </pre>
+
+    <h2>Attaching Event Listeners</h2>
+    <p>
+      You can attach an event listener using the
+      <code>addEventListener()</code> method. This method takes two arguments:
+    </p>
+    <ol>
+      <li>The event type (e.g., <code>click</code>).</li>
+      <li>A callback function that will be executed when the event occurs.</li>
+    </ol>
+
+    <h3>Example: Click Event</h3>
+    <pre>
+        <code>
+// Select the button element
+const button = document.getElementById('myButton');
+
+// Attach a click event listener
+button.addEventListener('click', function() {
+    alert('Button was clicked!');
+});
+        </code>
+    </pre>
+
+    <h3>Inline HTML Example</h3>
+    <p>
+      You can also use inline event attributes, but it is not recommended for
+      modern JavaScript:
+    </p>
+    <pre>
+        <code>
+<button onclick="alert('Button clicked!')">Click Me</button>
+        </code>
+    </pre>
+
+    <h2>Common Events</h2>
+    <p>Here are some commonly used JavaScript events:</p>
+    <table border="1" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>click</code></td>
+          <td>Triggered when an element is clicked.</td>
+        </tr>
+        <tr>
+          <td><code>mouseover</code></td>
+          <td>Triggered when the mouse hovers over an element.</td>
+        </tr>
+        <tr>
+          <td><code>input</code></td>
+          <td>Triggered when input changes in a field.</td>
+        </tr>
+        <tr>
+          <td><code>submit</code></td>
+          <td>Triggered when a form is submitted.</td>
+        </tr>
+        <tr>
+          <td><code>load</code></td>
+          <td>Triggered when a page or resource is loaded.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>DOM Content Loaded Event</h2>
+    <p>
+      In some cases, event listeners only work when the DOM content is fully
+      loaded. This is because JavaScript is executed as the browser parses the
+      HTML. If you try to attach an event listener to an element that has not
+      yet been loaded into the DOM, the code will fail.
+    </p>
+
+    <p>
+      To ensure that your event listeners work, you can wrap your JavaScript
+      code in a <code>DOMContentLoaded</code> event listener. This ensures that
+      the DOM is fully loaded and parsed before your script runs.
+    </p>
+
+    <h3>Example:</h3>
+    <pre>
+        <code>
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('myButton');
+    button.addEventListener('click', function() {
+        alert('Button was clicked!');
+    });
+});
+        </code>
+    </pre>
+
+    <p>
+      The <code>DOMContentLoaded</code> event is triggered when the initial HTML
+      document has been completely loaded and parsed, without waiting for
+      stylesheets, images, and subframes to finish loading.
+    </p>
+
+    <h2>Removing Event Listeners</h2>
+    <p>
+      You can remove an event listener using the
+      <code>removeEventListener()</code> method. It requires the exact same
+      function reference used to attach the listener.
+    </p>
+
+    <h3>Example:</h3>
+    <pre>
+        <code>
+function handleClick() {
+    alert('Button clicked!');
+}
+
+// Add the event listener
+button.addEventListener('click', handleClick);
+
+// Remove the event listener
+button.removeEventListener('click', handleClick);
+        </code>
+    </pre>
+
+    <h2>Preventing Default Actions</h2>
+    <p>
+      Some events have default actions associated with them, such as submitting
+      a form or following a link. You can prevent these default actions using
+      the <code>event.preventDefault()</code> method.
+    </p>
+
+    <h3>Example:</h3>
+    <pre>
+        <code>
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Form submission prevented!');
+});
+        </code>
+    </pre>
+
+    <h2>Best Practices</h2>
+    <ul>
+      <li>
+        Use <code>addEventListener</code> instead of inline event handlers.
+      </li>
+      <li>Keep event-handling logic modular and separate from HTML.</li>
+      <li>Always clean up event listeners to avoid memory leaks.</li>
+      <li>
+        Wrap your JavaScript code in a <code>DOMContentLoaded</code> listener if
+        it relies on DOM elements.
+      </li>
+      <li>
+        Understand event propagation and use <code>stopPropagation()</code> when
+        necessary.
+      </li>
+    </ul>
+
+    <p>
+      Understanding JavaScript events and event listeners is crucial for
+      building interactive web applications. Experiment with different event
+      types and handlers to deepen your knowledge!
+    </p>
+  </body>
+</html>

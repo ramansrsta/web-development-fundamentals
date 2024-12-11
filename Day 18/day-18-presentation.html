@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessing and Modifying the DOM & Using Browser DevTools</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <h1>Accessing and Modifying the DOM</h1>
+    <p>
+      The Document Object Model (DOM) is the interface between your HTML and
+      JavaScript. It allows you to dynamically manipulate content, structure,
+      and styles of a webpage.
+    </p>
+
+    <h2>1. Accessing DOM Elements</h2>
+    <p>To access elements in the DOM, you can use JavaScript methods:</p>
+
+    <ul>
+      <li>
+        <code>document.getElementById()</code> - Selects an element by its ID.
+      </li>
+      <li>
+        <code>document.getElementsByClassName()</code> - Selects elements by
+        their class.
+      </li>
+      <li>
+        <code>document.getElementsByTagName()</code> - Selects elements by their
+        tag name.
+      </li>
+      <li>
+        <code>document.querySelector()</code> - Selects the first element that
+        matches a CSS selector.
+      </li>
+      <li>
+        <code>document.querySelectorAll()</code> - Selects all elements that
+        match a CSS selector.
+      </li>
+    </ul>
+
+    <p>Example:</p>
+    <pre><code>// Select an element by ID
+const header = document.getElementById('main-header');
+
+// Select elements by class
+const items = document.getElementsByClassName('list-item');
+
+// Use querySelector for more flexible selection
+const firstItem = document.querySelector('.list-item');
+</code></pre>
+
+    <h2>2. Modifying DOM Elements</h2>
+    <p>Once you have selected an element, you can modify it:</p>
+
+    <ul>
+      <li>
+        <code>element.textContent</code> - Change the text content of an
+        element.
+      </li>
+      <li>
+        <code>element.innerHTML</code> - Change the HTML inside an element.
+      </li>
+      <li><code>element.style</code> - Modify the CSS styles of an element.</li>
+      <li>
+        <code>element.setAttribute()</code> - Set an attribute (e.g.,
+        <code>src</code>, <code>href</code>).
+      </li>
+      <li>
+        <code>element.classList</code> - Add, remove, or toggle CSS classes.
+      </li>
+    </ul>
+
+    <p>Example:</p>
+    <pre><code>// Change the text content
+header.textContent = 'Welcome to the DOM Tutorial';
+
+// Add a new CSS class
+header.classList.add('highlight');
+
+// Modify styles directly
+header.style.color = 'blue';
+header.style.backgroundColor = 'yellow';
+</code></pre>
+
+    <h1>Using Browser DevTools</h1>
+    <p>
+      Browser DevTools are essential for debugging and understanding how your
+      code interacts with the DOM.
+    </p>
+
+    <h2>1. Opening DevTools</h2>
+    <ul>
+      <li>Right-click on a webpage and select <strong>Inspect</strong>.</li>
+      <li>
+        Press <code>F12</code> or <code>Ctrl+Shift+I</code> (Windows) /
+        <code>Cmd+Option+I</code> (Mac).
+      </li>
+    </ul>
+
+    <h2>2. Inspecting the DOM</h2>
+    <p>
+      The <strong>Elements</strong> tab lets you view and edit the DOM structure
+      and CSS in real-time:
+    </p>
+    <ul>
+      <li>Hover over elements to see their position on the page.</li>
+      <li>Right-click on an element to edit its HTML or CSS directly.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Tip:</strong> Use the magnifying glass icon in the Elements tab to
+      select elements visually on the page.
+    </div>
+
+    <h2>3. Debugging JavaScript</h2>
+    <p>The <strong>Console</strong> tab is used to:</p>
+    <ul>
+      <li>Run JavaScript code interactively.</li>
+      <li>Log messages using <code>console.log()</code>.</li>
+      <li>View errors and warnings in your code.</li>
+    </ul>
+
+    <pre><code>// Log a message to the console
+console.log('Hello, DevTools!');
+
+// Check the value of a variable
+console.log(header.textContent);
+</code></pre>
+
+    <h2>4. Setting Breakpoints</h2>
+    <p>
+      The <strong>Sources</strong> tab lets you debug JavaScript step-by-step:
+    </p>
+    <ul>
+      <li>Click on a line number to set a breakpoint.</li>
+      <li>Use the controls to step through code execution.</li>
+      <li>Inspect variables and call stack during runtime.</li>
+    </ul>
+
+    <h2>5. Network Analysis</h2>
+    <p>The <strong>Network</strong> tab shows you:</p>
+    <ul>
+      <li>All requests made by the webpage.</li>
+      <li>Their status, size, and loading time.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Tip:</strong> Filter by type (e.g., XHR for API calls) to focus on
+      specific requests.
+    </div>
+
+    <p>
+      Using these tools, you can identify and fix issues efficiently, making you
+      a more productive developer!
+    </p>
+  </body>
+</html>
