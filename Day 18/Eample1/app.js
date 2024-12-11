@@ -6,9 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const header = document.getElementsByTagName("h1");
   const demo3 = document.getElementById("demo3");
 
+  const dateTimeNow = new Date();
+  const onlyTime = dateTimeNow.toLocaleTimeString();
+
+  demo.innerHTML = `<h1>${onlyTime}</h1>`;
+
   btn.addEventListener("click", function () {
     demo.style.color = "red";
-    demo.innerHTML = "<h1>Hello World</h1>";
+    demo.innerHTML = `<h1>${dateTimeNow}</h1>`;
 
     demo3.style.fontSize = "30px";
 
