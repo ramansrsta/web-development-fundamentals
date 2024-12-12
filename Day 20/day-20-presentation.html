@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to APIs, JSON, and Error Handling</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <h1>Introduction to APIs, JSON, and Error Handling</h1>
+
+    <h2>1. What is an API?</h2>
+    <p>
+      An API (Application Programming Interface) is like a waiter in a
+      restaurant. Imagine you are the customer, and you want to order pizza. You
+      tell the waiter what you want, and they go to the kitchen and bring it
+      back to you. In the tech world:
+    </p>
+    <ul>
+      <li>You are an app or program.</li>
+      <li>The waiter is the API.</li>
+      <li>The kitchen is the server where data lives.</li>
+    </ul>
+    <p>
+      APIs let different programs talk to each other. For example, when you use
+      a weather app, it uses an API to get the latest weather updates from a
+      server.
+    </p>
+
+    <div class="example">
+      <strong>Example:</strong> You ask Google Maps for directions. Google Maps
+      uses an API to find the best route and show it to you.
+    </div>
+
+    <h2>2. What is JSON?</h2>
+    <p>
+      JSON (JavaScript Object Notation) is like a magic box that holds
+      information in a very simple way so that everyone can understand it. It
+      looks like this:
+    </p>
+
+    <pre><code>{
+  "name": "Alice",
+  "age": 10,
+  "favoriteColor": "blue"
+}</code></pre>
+
+    <p>It has:</p>
+    <ul>
+      <li>
+        <strong>Keys:</strong> The labels, like <code>name</code> and
+        <code>age</code>.
+      </li>
+      <li>
+        <strong>Values:</strong> The information, like <code>"Alice"</code> and
+        <code>10</code>.
+      </li>
+    </ul>
+    <p>
+      JSON is used to send and receive data between programs, just like how you
+      send and get messages from your friends.
+    </p>
+
+    <div class="example">
+      <strong>Example:</strong> If you ask a weather API for today’s forecast,
+      it might send back JSON like this:
+      <pre><code>{
+  "temperature": 25,
+  "condition": "sunny",
+  "city": "Kathmandu"
+}</code></pre>
+    </div>
+
+    <h2>3. The Fetch API</h2>
+    <p>
+      The <code>fetch</code> API is used to make requests to servers and fetch
+      data. It’s like sending a letter to a server and waiting for a reply.
+      There are different types of requests you can make:
+    </p>
+
+    <h3>GET Request</h3>
+    <p>
+      A GET request is like asking a library for a book. You request data from
+      the server, and it sends the data back.
+    </p>
+    <pre><code>fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+
+    <h3>POST Request</h3>
+    <p>
+      A POST request is like sending a letter. You send data to the server. For
+      example:
+    </p>
+    <pre><code>fetch('https://api.example.com/data', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ name: 'Alice', age: 10 })
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+
+    <h3>DELETE Request</h3>
+    <p>
+      A DELETE request removes data from the server. You can use query
+      parameters or a body to specify what to delete.
+    </p>
+    <pre><code>fetch('https://api.example.com/data/123', {
+  method: 'DELETE'
+})
+  .then(response => response.json())
+  .then(data => console.log('Deleted:', data))
+  .catch(error => console.error('Error:', error));</code></pre>
+
+    <h3>Query Parameters</h3>
+    <p>
+      Query parameters are added to the URL to pass extra data. For example:
+    </p>
+    <pre><code>fetch('https://api.example.com/data?userId=123&status=active')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+
+    <h3>Passing Data in DELETE Requests</h3>
+    <p>For DELETE requests, you might also pass a body with additional data:</p>
+    <pre><code>fetch('https://api.example.com/data', {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ id: 123, forceDelete: true })
+})
+  .then(response => response.json())
+  .then(data => console.log('Deleted:', data))
+  .catch(error => console.error('Error:', error));</code></pre>
+
+    <h3>Other Requests</h3>
+    <ul>
+      <li><strong>PUT:</strong> Updates existing data.</li>
+      <li>
+        <strong>OPTIONS:</strong> Checks what requests are allowed on the
+        server.
+      </li>
+    </ul>
+
+    <h2>4. What is CORS?</h2>
+    <p>
+      CORS (Cross-Origin Resource Sharing) is like a security guard. It makes
+      sure that only trusted apps can get data from a server. If an app tries to
+      fetch data from a different domain, the server checks if it’s allowed.
+    </p>
+
+    <div class="error">
+      <strong>CORS Error:</strong> If the server doesn’t allow your app, you’ll
+      get a CORS error. This is common when you’re working with APIs.
+    </div>
+
+    <h3>Fixing CORS Errors</h3>
+    <ul>
+      <li>Use a proxy server to make the request.</li>
+      <li>Check if the server supports CORS and allows your domain.</li>
+      <li>
+        Add the right headers on the server, like
+        <code>Access-Control-Allow-Origin</code>.
+      </li>
+    </ul>
+
+    <h2>5. How to Handle Errors</h2>
+    <p>
+      Sometimes things go wrong, and that’s okay! Here’s how we deal with
+      errors:
+    </p>
+
+    <h3>Types of Errors:</h3>
+    <ul>
+      <li>
+        <strong>Network Error:</strong> When the waiter (API) can’t reach the
+        kitchen (server).
+      </li>
+      <li>
+        <strong>Server Error:</strong> When the kitchen (server) runs out of
+        pizza (data).
+      </li>
+      <li>
+        <strong>Client Error:</strong> When you order something the kitchen
+        (server) doesn’t have on the menu.
+      </li>
+    </ul>
+
+    <h3>Using Error Messages</h3>
+    <p>
+      When an error happens, the API might send you a message. This message can
+      help you fix the problem. For example:
+    </p>
+    <pre><code>{
+  "error": "City not found"
+}</code></pre>
+
+    <div class="error">
+      <strong>Tip:</strong> Always check for error messages when using APIs.
+      They are like clues to solve a puzzle.
+    </div>
+
+    <h3>Handling Errors in Code</h3>
+    <p>
+      When writing JavaScript, you can use <code>try</code> and
+      <code>catch</code> to handle errors:
+    </p>
+
+    <pre><code>try {
+  // Try to fetch data from an API
+  const response = await fetch('https://api.example.com/data');
+  const data = await response.json();
+  console.log(data);
+} catch (error) {
+  // If something goes wrong, handle it here
+  console.error('Oops, something went wrong:', error);
+}</code></pre>
+
+    <h2>Why is This Important?</h2>
+    <p>
+      APIs, JSON, and error handling make apps smarter and help them work
+      together. Understanding these basics will help you build amazing projects!
+    </p>
+  </body>
+</html>

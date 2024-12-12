@@ -81,3 +81,11 @@ th {
   border-radius: 5px;
   margin: 5px 0;
 }
+
+.error {
+  background-color: #ffe7e7;
+  padding: 10px;
+  border-left: 4px solid #dc3545;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
