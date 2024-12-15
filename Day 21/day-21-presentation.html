@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lectures: Closures, Promises, Async/Await, and Web Hosting</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <h1>Lectures on JavaScript and Web Hosting</h1>
+
+    <h2>1. Closures</h2>
+    <p>
+      A <strong>closure</strong> is a function that has access to its own scope,
+      the scope of its outer function, and the global scope even after the outer
+      function has executed.
+    </p>
+
+    <h3>Example:</h3>
+    <pre><code>function outerFunction(outerVariable) {
+    return function innerFunction(innerVariable) {
+        console.log(`Outer Variable: ${outerVariable}`);
+        console.log(`Inner Variable: ${innerVariable}`);
+    };
+}
+
+const newFunction = outerFunction('outside');
+newFunction('inside');
+// Output:
+// Outer Variable: outside
+// Inner Variable: inside</code></pre>
+
+    <p><strong>Key Points:</strong></p>
+    <ul>
+      <li>Closures remember the environment in which they were created.</li>
+      <li>Useful in data hiding and creating private variables.</li>
+    </ul>
+
+    <h2>2. Promises</h2>
+    <p>
+      A <strong>Promise</strong> represents a value which might be available
+      now, or in the future, or never. It is used to handle asynchronous
+      operations.
+    </p>
+
+    <h3>States of a Promise:</h3>
+    <ul>
+      <li>
+        <code>Pending</code>: Initial state, neither fulfilled nor rejected.
+      </li>
+      <li><code>Fulfilled</code>: Operation completed successfully.</li>
+      <li><code>Rejected</code>: Operation failed.</li>
+    </ul>
+
+    <h3>Example:</h3>
+    <pre><code>const myPromise = new Promise((resolve, reject) => {
+    const success = true;
+    if (success) {
+        resolve('Promise fulfilled!');
+    } else {
+        reject('Promise rejected!');
+    }
+});
+
+myPromise
+    .then(response => console.log(response))
+    .catch(error => console.log(error));</code></pre>
+
+    <p><strong>Key Points:</strong></p>
+    <ul>
+      <li>Promises make asynchronous code easier to manage.</li>
+      <li>
+        Use <code>.then()</code> and <code>.catch()</code> to handle results and
+        errors respectively.
+      </li>
+    </ul>
+
+    <h2>3. Async/Await</h2>
+    <p>
+      The <strong>async/await</strong> syntax is a cleaner way to work with
+      promises. It allows writing asynchronous code that looks synchronous.
+    </p>
+
+    <h3>Example:</h3>
+    <pre><code>async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log('Error:', error);
+    }
+}
+
+fetchData();</code></pre>
+
+    <p><strong>Key Points:</strong></p>
+    <ul>
+      <li>Use <code>async</code> before a function to make it asynchronous.</li>
+      <li>
+        Use <code>await</code> to pause the execution until the promise resolves
+        or rejects.
+      </li>
+    </ul>
+
+    <h2>4. Introduction to Web Hosting and Deployment</h2>
+    <p>
+      <strong>Web Hosting</strong> is the process of storing your web
+      application on a server to make it accessible over the internet.
+    </p>
+
+    <h3>Types of Hosting:</h3>
+    <ul>
+      <li>
+        <strong>Shared Hosting:</strong> Multiple websites share the same server
+        resources.
+      </li>
+      <li>
+        <strong>VPS (Virtual Private Server):</strong> A virtualized server with
+        dedicated resources.
+      </li>
+      <li>
+        <strong>Cloud Hosting:</strong> Websites are hosted on a cloud
+        infrastructure.
+      </li>
+    </ul>
+
+    <h3>Steps to Deploy a Website:</h3>
+    <ol>
+      <li>Choose a hosting provider (e.g., Netlify, Vercel, AWS).</li>
+      <li>Prepare your website files (HTML, CSS, JavaScript).</li>
+      <li>Upload files to the server using FTP or deployment tools.</li>
+      <li>Link a domain name to the hosting server.</li>
+    </ol>
+
+    <h3>Example Deployment:</h3>
+    <p>Using GitHub Pages:</p>
+    <pre><code>// Steps
+1. Push your project to a GitHub repository.
+2. Go to Settings > Pages.
+3. Choose a branch and save.
+4. Your website will be live at <code>https://username.github.io/repository-name/</code>.</code></pre>
+
+    <p><strong>Key Points:</strong></p>
+    <ul>
+      <li>Understand the hosting type that fits your project needs.</li>
+      <li>Always test your site after deployment.</li>
+    </ul>
+
+    <h1>Introduction to React</h1>
+
+    <div class="slide">
+        <h2>What is React?</h2>
+        <p>React is a popular JavaScript library for building user interfaces, particularly single-page applications. Created by Facebook, React allows developers to create reusable UI components and manage the application state efficiently.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Installation</h2>
+        <p>There are multiple ways to install React:</p>
+        
+        <h3>1. Using Create React App (Recommended for Beginners)</h3>
+        <pre><code>npx create-react-app my-react-app
+cd my-react-app
+npm start</code></pre>
+        
+        <h3>2. Using Vite (Modern Build Tool)</h3>
+        <pre><code>npm create vite@latest my-react-app -- --template react
+cd my-react-app
+npm install
+npm run dev</code></pre>
+        
+        <p>Ensure you have Node.js and npm installed on your system before running these commands.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Components in React</h2>
+        <p>React has two primary ways of creating components:</p>
+        
+        <h3>1. Functional Components</h3>
+        <pre><code>function Welcome(props) {
+    return <p>Hello, {props.name}!</p>;
+}
+
+// Modern syntax with arrow function
+const Welcome = (props) => {
+    return <p>Hello, {props.name}!</p>;
+}</code></pre>
+        
+        <h3>2. Class Components</h3>
+        <pre><code>import React from 'react';
+
+class Welcome extends React.Component {
+    render() {
+        return <h1>Hello, {this.props.name}!</h1>;
+    }
+}</code></pre>
+    </div>
+
+    <div class="slide">
+        <h2>Props</h2>
+        <p>Props (short for properties) are how components receive and pass data.</p>
+        <pre><code>function Greeting(props) {
+    return <p>Welcome, {props.username}!</p>;
+}
+
+function App() {
+    return <Greeting username="Alice" />;
+}</code></pre>
+        <p>Props are read-only and help create reusable components.</p>
+    </div>
+
+    <div class="slide">
+        <h2>State</h2>
+        <p>State is used to manage data that can change over time within a component.</p>
+        
+        <h3>Functional Component State (Hooks)</h3>
+        <pre><code>import React, { useState } from 'react';
+
+function Counter() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+                Click me
+            </button>
+        </div>
+    );
+}</code></pre>
+        
+        <h3>Class Component State</h3>
+        <pre><code>import React from 'react';
+
+class Counter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
+
+    render() {
+        return (
+            <div>
+                <p>You clicked {this.state.count} times</p>
+                <button onClick={() => 
+                    this.setState({ count: this.state.count + 1 })
+                }>
+                    Click me
+                </button>
+            </div>
+        );
+    }
+}</code></pre>
+    </div>
+
+    <div class="slide">
+        <h2>Key Differences: Functional vs Class Components</h2>
+        <table border="1" style="width:100%; border-collapse: collapse;">
+            <tr>
+                <th>Feature</th>
+                <th>Functional Components</th>
+                <th>Class Components</th>
+            </tr>
+            <tr>
+                <td>State Management</td>
+                <td>Uses Hooks (useState)</td>
+                <td>Uses this.state and this.setState()</td>
+            </tr>
+            <tr>
+                <td>Lifecycle Methods</td>
+                <td>Uses Hooks (useEffect)</td>
+                <td>componentDidMount, componentDidUpdate, etc.</td>
+            </tr>
+            <tr>
+                <td>Syntax</td>
+                <td>More concise, function-based</td>
+                <td>More verbose, class-based</td>
+            </tr>
+            <tr>
+                <td>Modern Recommendation</td>
+                <td>Preferred in modern React</td>
+                <td>Legacy approach</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <h2>Best Practices</h2>
+        <ul>
+            <li>Prefer functional components with hooks in modern React development</li>
+            <li>Keep components small and focused on a single responsibility</li>
+            <li>Use prop types or TypeScript for type checking</li>
+            <li>Lift state up when multiple components need to share the same changing data</li>
+        </ul>
+    </div>
+  </body>
+</html>

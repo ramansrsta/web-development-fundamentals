@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectures: Advanced Web Development Topics</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <h1>Lectures on Advanced Web Development Topics</h1>
+
+    <h2>1. Web Performance Optimization</h2>
+    <p>Optimizing web performance is essential for providing a fast and seamless user experience.</p>
+
+    <h3>What is Web Performance Optimization?</h3>
+    <p>It involves techniques to make your web application faster, more efficient, and less resource-intensive. Faster websites lead to better user satisfaction, higher engagement, and improved SEO rankings.</p>
+
+    <h3>Key Techniques:</h3>
+    <ul>
+        <li><strong>Code Splitting:</strong> Use tools like Webpack or Vite to split code into smaller bundles to reduce initial load times.</li>
+        <li><strong>Lazy Loading:</strong> Load assets (e.g., images, components) only when they are needed, not all at once.</li>
+        <li><strong>Minification:</strong> Minify CSS, JavaScript, and HTML files to reduce file sizes for faster transmission.</li>
+        <li><strong>Image Optimization:</strong> Use modern formats like WebP or AVIF and tools like ImageMagick or TinyPNG for compression.</li>
+        <li><strong>Cache Management:</strong> Use browser caching, server-side caching, and CDNs to reduce redundant requests.</li>
+        <li><strong>Critical Rendering Path Optimization:</strong> Inline critical CSS and prioritize loading above-the-fold content.</li>
+        <li><strong>Server-Side Rendering (SSR):</strong> Use frameworks like Next.js to improve Time to First Byte (TTFB).</li>
+        <li><strong>Resource Prioritization:</strong> Use <code>&lt;link rel="preload"&gt;</code> for essential assets.</li>
+    </ul>
+
+    <h3>Deep Dive Example: Lazy Loading</h3>
+    <p>Lazy loading improves performance by deferring the loading of non-critical resources.</p>
+    <pre><code>import React from 'react';
+
+const LazyImage = () => (
+    <img
+        src="https://example.com/image.jpg"
+        loading="lazy"
+        alt="Optimized Image"
+    />
+);
+
+export default LazyImage;
+</code></pre>
+
+    <h3>Advanced Tools and Metrics</h3>
+    <ul>
+        <li><strong>Core Web Vitals:</strong> Focus on Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS).</li>
+        <li><strong>HTTP/2 and HTTP/3:</strong> Upgrade to reduce latency and improve multiplexing.</li>
+        <li><strong>CDN Configuration:</strong> Use CDNs like Cloudflare or Akamai for asset caching and global delivery.</li>
+    </ul>
+
+    <h2>2. Security Best Practices</h2>
+    <p>Securing your web application is crucial to prevent data breaches, unauthorized access, and attacks.</p>
+
+    <h3>Why Security Matters</h3>
+    <p>Cybersecurity threats like XSS, SQL injection, and CSRF can compromise sensitive user data. Following security best practices ensures trust and compliance with regulations like GDPR.</p>
+
+    <h3>Important Practices:</h3>
+    <ul>
+        <li><strong>Content Security Policy (CSP):</strong> Prevents cross-site scripting (XSS) attacks by restricting resource loading to trusted sources.</li>
+        <li><strong>HTTPS:</strong> Always serve your app over HTTPS to encrypt data transfer.</li>
+        <li><strong>Input Validation:</strong> Sanitize user inputs to prevent malicious injections and XSS vulnerabilities.</li>
+        <li><strong>Authentication & Authorization:</strong> Implement secure authentication mechanisms like OAuth and enforce role-based access control.</li>
+        <li><strong>Secure Cookies:</strong> Use attributes like <code>HttpOnly</code>, <code>Secure</code>, and <code>SameSite</code> to mitigate risks.</li>
+        <li><strong>Dependency Management:</strong> Regularly audit third-party dependencies for vulnerabilities.</li>
+        <li><strong>Rate Limiting and DDoS Protection:</strong> Use NGINX or Cloudflare to block malicious traffic.</li>
+    </ul>
+
+    <h3>Deep Dive Example: HTTPS in Express.js</h3>
+    <p>Using HTTPS ensures encrypted communication between the server and client.</p>
+    <pre><code>const express = require('express');
+const fs = require('fs');
+const https = require('https');
+
+const app = express();
+
+https.createServer({
+    key: fs.readFileSync('key.pem'),
+    cert: fs.readFileSync('cert.pem')
+}, app).listen(443, () => {
+    console.log('Server is running on https://localhost');
+});
+</code></pre>
+
+    <h3>Advanced Security Concepts</h3>
+    <ul>
+        <li><strong>JSON Web Tokens (JWT):</strong> Secure authentication with token-based access control.</li>
+        <li><strong>OAuth 2.0:</strong> Implement third-party authentication for enhanced security.</li>
+        <li><strong>Secure Headers:</strong> Use libraries like Helmet.js to configure HTTP headers.</li>
+    </ul>
+
+    <h2>3. Progressive Web Apps (PWAs)</h2>
+    <p>PWAs combine the best of web and mobile apps, offering offline access, push notifications, and an app-like experience.</p>
+
+    <h3>What Makes PWAs Unique?</h3>
+    <p>PWAs are built with web technologies but behave like native mobile apps, providing benefits like installability and offline capabilities.</p>
+
+    <h3>Key Features:</h3>
+    <ul>
+        <li><strong>Service Workers:</strong> JavaScript files that enable offline functionality by intercepting network requests and serving cached responses.</li>
+        <li><strong>Manifest File:</strong> A JSON file defining metadata like app name, icons, and theme color.</li>
+        <li><strong>Responsive Design:</strong> Ensures the app works seamlessly across various devices and screen sizes.</li>
+    </ul>
+
+    <h3>Deep Dive Example: Service Worker</h3>
+    <p>A service worker caches resources to enable offline access.</p>
+    <pre><code>self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open('v1').then((cache) => {
+            return cache.addAll([
+                '/',
+                '/index.html',
+                '/styles.css',
+                '/app.js'
+            ]);
+        })
+    );
+});
+
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request);
+        })
+    );
+});
+</code></pre>
+
+    <h2>4. TypeScript</h2>
+    <p>TypeScript enhances JavaScript with static typing, making your code more robust and maintainable.</p>
+
+    <h3>What is TypeScript?</h3>
+    <p>A superset of JavaScript, TypeScript introduces optional static types to catch errors early in development and improve code quality.</p>
+
+    <h3>Advantages of TypeScript:</h3>
+    <ul>
+        <li><strong>Type Safety:</strong> Reduces runtime errors by enforcing type correctness during development.</li>
+        <li><strong>Improved Tooling:</strong> Supports advanced IDE features like autocompletion, code navigation, and refactoring.</li>
+        <li><strong>Better Collaboration:</strong> Easier for teams to understand and maintain code with explicit types.</li>
+    </ul>
+
+    <h3>Deep Dive Example: TypeScript Function</h3>
+    <p>Adding types to functions ensures inputs and outputs conform to expectations.</p>
+    <pre><code>function greet(name: string): string {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet('Alice'));
+</code></pre>
+
+    <h3>Integrating TypeScript in a React Project:</h3>
+    <p>TypeScript works seamlessly with React to improve component development.</p>
+    <pre><code>// Step 1: Create a React app
+npx create-react-app my-app --template typescript
+
+// Step 2: Use .tsx files for components
+
+import React from 'react';
+
+type Props = {
+    message: string;
+};
+
+const MessageComponent: React.FC<Props> = ({ message }) => (
+    <h1>{message}</h1>
+);
+
+export default MessageComponent;
+</code></pre>
+
+</body>
+</html>
